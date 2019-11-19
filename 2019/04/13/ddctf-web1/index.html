@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DDCTF-WEB1 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="0x01
+发现传参_jpg_，值为一串_base64_编码后的的字符串，进行两次_base64_解码和一次_base16_解码后可以得到字符串“_flag.jpg_”。0x02联系到上边的字符串，不难想到要点在于向_jpg_传入构造有效的_payload_来看到文件内容，首先尝试_index.php">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="DDCTF-WEB1"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>DDCTF-WEB1</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/04/13/ddctf-web1/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-04-12T18:11:31.000Z">
+          2019-04-13
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a><strong><em>0x01</em></strong></h1><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/V4TB8MUA95VMNSQ8W.png" alt=""></strong></p>
+<h3 id="发现传参-jpg-，值为一串-base64-编码后的的字符串，进行两次-base64-解码和一次-base16-解码后可以得到字符串“-flag-jpg-”。"><a href="#发现传参-jpg-，值为一串-base64-编码后的的字符串，进行两次-base64-解码和一次-base16-解码后可以得到字符串“-flag-jpg-”。" class="headerlink" title="发现传参_jpg_，值为一串_base64_编码后的的字符串，进行两次_base64_解码和一次_base16_解码后可以得到字符串“_flag.jpg_”。"></a><strong>发现传参_jpg_，值为一串_base64_编码后的的字符串，进行两次_base64_解码和一次_base16_解码后可以得到字符串“_flag.jpg_”。</strong></h3><h1 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a><strong><em>0x02</em></strong></h1><h3 id="联系到上边的字符串，不难想到要点在于向-jpg-传入构造有效的-payload-来看到文件内容，首先尝试-index-php-，成功得到源码。"><a href="#联系到上边的字符串，不难想到要点在于向-jpg-传入构造有效的-payload-来看到文件内容，首先尝试-index-php-，成功得到源码。" class="headerlink" title="联系到上边的字符串，不难想到要点在于向_jpg_传入构造有效的_payload_来看到文件内容，首先尝试_index.php_，成功得到源码。"></a><strong>联系到上边的字符串，不难想到要点在于向_jpg_传入构造有效的_payload_来看到文件内容，首先尝试_index.php_，成功得到源码。</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/QBVBL47Y0R1HH6FY.png" alt=""></strong> <strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/M0WCPH43FZ6MAXVOPT.png" alt=""></strong></p>
+<h1 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a><strong><em>0x03</em></strong></h1><h3 id="访问-hint-地址发现屁用没有，从别的文章里发现了些有趣的东西。"><a href="#访问-hint-地址发现屁用没有，从别的文章里发现了些有趣的东西。" class="headerlink" title="访问_hint_地址发现屁用没有，从别的文章里发现了些有趣的东西。"></a><strong>访问_hint_地址发现屁用没有，从别的文章里发现了些有趣的东西。</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/7Q@_KO2O5EL6VHS.png" alt=""></strong> <strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/Q6LYG3Y0K8IBTWFVO.png" alt=""></strong></p>
+<h3 id="尝试构造“-practice-txt-swp-”后得到-hint2-。"><a href="#尝试构造“-practice-txt-swp-”后得到-hint2-。" class="headerlink" title="尝试构造“_practice.txt.swp_”后得到_hint2_。"></a><strong>尝试构造“_practice.txt.swp_”后得到_hint2_。</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/W6JKKIWOEH@DXMH.png" alt=""></strong></p>
+<h1 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a><strong><em>0x04</em></strong></h1><h3 id="通过向jpg-传值的方式得到该文件源码，联系到-0x02-中的正则过滤掉字母数字以外的字符以及下边-str-替换“-config-”为“-”，可以构造“-f1agconfigddctf-php-”，得到-hint3-。"><a href="#通过向jpg-传值的方式得到该文件源码，联系到-0x02-中的正则过滤掉字母数字以外的字符以及下边-str-替换“-config-”为“-”，可以构造“-f1agconfigddctf-php-”，得到-hint3-。" class="headerlink" title="通过向jpg_传值的方式得到该文件源码，联系到_0x02_中的正则过滤掉字母数字以外的字符以及下边_str_替换“_config_”为“!_”，可以构造“_f1agconfigddctf.php_”，得到_hint3_。"></a><strong>通过向<em>jpg_传值的方式得到该文件源码，联系到_0x02_中的正则过滤掉字母数字以外的字符以及下边_str_替换“_config_”为“</em>!_”，可以构造“_f1agconfigddctf.php_”，得到_hint3_。</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/YQBN@H9421ACH6ZME.png" alt=""></strong></p>
+<h1 id="0x05"><a href="#0x05" class="headerlink" title="0x05"></a><strong><em>0x05</em></strong></h1><h3 id="再简单不过的审计，构造-uid-为空即可，秒杀。"><a href="#再简单不过的审计，构造-uid-为空即可，秒杀。" class="headerlink" title="再简单不过的审计，构造_uid_为空即可，秒杀。"></a><strong>再简单不过的审计，构造_uid_为空即可，秒杀。</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/DPBLQAV_OFXY8TV.png" alt=""></strong></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/web/">web</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

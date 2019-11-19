@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DDCTF-RE1 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="0x01_exeinfo_查壳发现是_upx_壳
+直接一步到位手脱，单步几次达到oep 
+0x02手动修复_iat_，_import rec_一哈
+0x03再用_ida_分析一下只要将传入字符串通过_check_是否等于_DDCTF{reverseME}_即可，这里也不用写脚本，载入_od_，_no">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="DDCTF-RE1"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>DDCTF-RE1</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/04/24/ddctf-re1/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-04-24T04:20:35.000Z">
+          2019-04-24
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a><em><strong>0x01</strong></em></h1><h3 id="exeinfo-查壳发现是-upx-壳"><a href="#exeinfo-查壳发现是-upx-壳" class="headerlink" title="_exeinfo_查壳发现是_upx_壳"></a><strong>_exeinfo_查壳发现是_upx_壳</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/TPO@E3@926LSRC65BEF5.png" alt=""></strong></p>
+<h3 id="直接一步到位手脱，单步几次达到oep"><a href="#直接一步到位手脱，单步几次达到oep" class="headerlink" title="直接一步到位手脱，单步几次达到oep"></a><strong>直接一步到位手脱，单步几次达到<em>oep</em></strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/3IYI7_HPSQV@NGI83HH.png" alt=""></strong> <strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/LWJ93G7PU7K4I@U44A.png" alt=""></strong></p>
+<h1 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a><em><strong>0x02</strong></em></h1><h3 id="手动修复-iat-，-import-rec-一哈"><a href="#手动修复-iat-，-import-rec-一哈" class="headerlink" title="手动修复_iat_，_import rec_一哈"></a><strong>手动修复_iat_，_import rec_一哈</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/IAKKV54_PZF16QF1J.png" alt=""></strong></p>
+<h1 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a><em><strong>0x03</strong></em></h1><h3 id="再用-ida-分析一下只要将传入字符串通过-check-是否等于-DDCTF-reverseME-即可，这里也不用写脚本，载入-od-，-nop-掉判断"><a href="#再用-ida-分析一下只要将传入字符串通过-check-是否等于-DDCTF-reverseME-即可，这里也不用写脚本，载入-od-，-nop-掉判断" class="headerlink" title="再用_ida_分析一下只要将传入字符串通过_check_是否等于_DDCTF{reverseME}_即可，这里也不用写脚本，载入_od_，_nop_掉判断"></a><strong>再用_ida_分析一下只要将传入字符串通过_check_是否等于_DDCTF{reverseME}_即可，这里也不用写脚本，载入_od_，_nop_掉判断</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/9LT789B5EO_RVFH8U.png" alt=""></strong></p>
+<h3 id="直接搞定"><a href="#直接搞定" class="headerlink" title="直接搞定"></a><strong>直接搞定</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/GM9_OOOZCZ@YMQXVG.png" alt=""></strong></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/re/">re</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

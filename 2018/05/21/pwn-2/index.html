@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>pwnable.kr之collision | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="还是一个套路，首先看看都有什么文件
+
+
+_emmm_，和上次那个一个套路啊，先来审计一波源码，可以看到一些有趣的东西
+
+
+我们不难发现：
+
+
+要传入20_字节的_passcode
+_res_要和_hashcode_相等
+_check_password_返回的是_res_的值
+_res_的值是经过5次">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="pwnable.kr之collision"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>pwnable.kr之collision</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/21/pwn-2/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-21T10:46:42.000Z">
+          2018-05-21
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id=""><a href="#" class="headerlink" title=""></a><strong><img src="https://www.highker.wiki/wp-content/uploads/2018/05/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_deepin-terminal_20180521182855.png" alt=""></strong></h2><ul>
+<li><h2 id="还是一个套路，首先看看都有什么文件"><a href="#还是一个套路，首先看看都有什么文件" class="headerlink" title="还是一个套路，首先看看都有什么文件"></a><strong>还是一个套路，首先看看都有什么文件</strong></h2></li>
+</ul>
+<ul>
+<li><h2 id="emmm-，和上次那个一个套路啊，先来审计一波源码，可以看到一些有趣的东西"><a href="#emmm-，和上次那个一个套路啊，先来审计一波源码，可以看到一些有趣的东西" class="headerlink" title="_emmm_，和上次那个一个套路啊，先来审计一波源码，可以看到一些有趣的东西"></a><strong>_emmm_，和上次那个一个套路啊，先来审计一波源码，可以看到一些有趣的东西</strong></h2></li>
+</ul>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/05/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_deepin-terminal_20180521183123.png" alt=""></h2><ul>
+<li><h2 id="我们不难发现："><a href="#我们不难发现：" class="headerlink" title="我们不难发现："></a><strong>我们不难发现：</strong></h2></li>
+</ul>
+<ol>
+<li><h2 id="要传入20-字节的-passcode"><a href="#要传入20-字节的-passcode" class="headerlink" title="要传入20_字节的_passcode"></a><strong>要传入<em>20_字节的_passcode</em></strong></h2></li>
+<li><h2 id="res-要和-hashcode-相等"><a href="#res-要和-hashcode-相等" class="headerlink" title="_res_要和_hashcode_相等"></a><strong>_res_要和_hashcode_相等</strong></h2></li>
+<li><h2 id="check-password-返回的是-res-的值"><a href="#check-password-返回的是-res-的值" class="headerlink" title="_check_password_返回的是_res_的值"></a><strong>_check_password_返回的是_res_的值</strong></h2></li>
+<li><h2 id="res-的值是经过5次累加"><a href="#res-的值是经过5次累加" class="headerlink" title="_res_的值是经过5次累加"></a><strong>_res_的值是经过<em>5</em>次累加</strong></h2></li>
+</ol>
+<ul>
+<li><h2 id="首先-hashcode-的值为-568134124-，由此可以构造一个-20-字节的字符串，该字符串可分为两部分："><a href="#首先-hashcode-的值为-568134124-，由此可以构造一个-20-字节的字符串，该字符串可分为两部分：" class="headerlink" title="首先_hashcode_的值为_568134124_，由此可以构造一个_20_字节的字符串，该字符串可分为两部分："></a><strong>首先_hashcode_的值为_568134124_，由此可以构造一个_20_字节的字符串，该字符串可分为两部分：</strong></h2></li>
+</ul>
+<ol>
+<li><h2 id="A部分为-xxxx-重复四次；"><a href="#A部分为-xxxx-重复四次；" class="headerlink" title="A部分为_xxxx_重复四次；"></a><strong><em>A</em>部分为_xxxx_重复四次；</strong></h2></li>
+<li><h2 id="B部分为-hashcode-4-A-的值；"><a href="#B部分为-hashcode-4-A-的值；" class="headerlink" title="B部分为_hashcode-4*A_的值；"></a><strong><em>B</em>部分为_hashcode-4*A_的值；</strong></h2></li>
+</ol>
+<ul>
+<li><h2 id="然后可以使用-Python-将构造好的-passcode-传入"><a href="#然后可以使用-Python-将构造好的-passcode-传入" class="headerlink" title="然后可以使用_Python_将构造好的_passcode_传入"></a><strong>然后可以使用_Python_将构造好的_passcode_传入</strong></h2></li>
+<li><h2 id="构造python-c-‘print-4-”-xc9-xce-xc5-x06”-”-xc8-xce-xc5-x06”‘-xargs-col"><a href="#构造python-c-‘print-4-”-xc9-xce-xc5-x06”-”-xc8-xce-xc5-x06”‘-xargs-col" class="headerlink" title="构造python -c ‘print 4*”\xc9\xce\xc5\x06”+”\xc8\xce\xc5\x06”‘ | xargs ./col"></a><strong>构造<em>python -c ‘print 4*”\xc9\xce\xc5\x06”+”\xc8\xce\xc5\x06”‘ | xargs ./col</em></strong></h2></li>
+</ul>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/05/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180521184534.png" alt=""></h2><h2 id="get-flag"><a href="#get-flag" class="headerlink" title="get flag"></a><em><strong>get flag</strong></em></h2>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/pwn/">pwn</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

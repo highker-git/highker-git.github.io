@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>随便水了一道ctf题目 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="嘛，好久没更新过了，随便写一道_web_题表示我还活着贴上题目一道很单纯的代码审计，首先是正则匹配，形如“_O:1:_”这样的字符串会被匹配到，在下边_count()_函数中会返回“1”，从而结束程序运行再看后边，一个简单的反序列化，只要构造_O:4:”baby”:1:{s:4:”file”;s:8">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="随便水了一道ctf题目"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>随便水了一道ctf题目</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/12/23/easy-unserialize/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-12-23T15:36:10.000Z">
+          2018-12-23
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="嘛，好久没更新过了，随便写一道-web-题表示我还活着"><a href="#嘛，好久没更新过了，随便写一道-web-题表示我还活着" class="headerlink" title="嘛，好久没更新过了，随便写一道_web_题表示我还活着"></a><strong>嘛，好久没更新过了，随便写一道_web_题表示我还活着</strong></h2><h2 id=""><a href="#" class="headerlink" title=""></a><strong><img src="https://www.highker.wiki/wp-content/uploads/2018/12/TIM%E6%88%AA%E5%9B%BE20181223233808.png" alt=""></strong></h2><h2 id="贴上题目"><a href="#贴上题目" class="headerlink" title="贴上题目"></a><strong>贴上题目</strong></h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><strong><img src="https://www.highker.wiki/wp-content/uploads/2018/12/TIM%E6%88%AA%E5%9B%BE20181223232944.png" alt=""></strong></h2><h2 id="一道很单纯的代码审计，首先是正则匹配，形如“-O-1-”这样的字符串会被匹配到，在下边-count-函数中会返回“1”，从而结束程序运行"><a href="#一道很单纯的代码审计，首先是正则匹配，形如“-O-1-”这样的字符串会被匹配到，在下边-count-函数中会返回“1”，从而结束程序运行" class="headerlink" title="一道很单纯的代码审计，首先是正则匹配，形如“_O:1:_”这样的字符串会被匹配到，在下边_count()_函数中会返回“1”，从而结束程序运行"></a><strong>一道很单纯的代码审计，首先是正则匹配，形如“_O:1:_”这样的字符串会被匹配到，在下边_count()_函数中会返回“<em>1</em>”，从而结束程序运行</strong></h2><h2 id="再看后边，一个简单的反序列化，只要构造-O-4-”baby”-1-s-4-”file”-s-8-”flag-php”-即可"><a href="#再看后边，一个简单的反序列化，只要构造-O-4-”baby”-1-s-4-”file”-s-8-”flag-php”-即可" class="headerlink" title="再看后边，一个简单的反序列化，只要构造_O:4:”baby”:1:{s:4:”file”;s:8:”flag.php”;}_即可"></a><strong>再看后边，一个简单的反序列化，只要构造_O:4:”baby”:1:{s:4:”file”;s:8:”flag.php”;}_即可</strong></h2><h2 id="联系到上边的条件，此处应构造O-4-”baby”-1-s-4-”file”-s-8-”flag-php”-，但是在请求发送到服务器时会将“-”作为空格处理，在这里应该对“-”做-urlencode-处理，即构造-O-2b4-”baby”-1-s-4-”file”-s-8-”flag-php”"><a href="#联系到上边的条件，此处应构造O-4-”baby”-1-s-4-”file”-s-8-”flag-php”-，但是在请求发送到服务器时会将“-”作为空格处理，在这里应该对“-”做-urlencode-处理，即构造-O-2b4-”baby”-1-s-4-”file”-s-8-”flag-php”" class="headerlink" title="联系到上边的条件，此处应构造O:+4:”baby”:1:{s:4:”file”;s:8:”flag.php”;}_，但是在请求发送到服务器时会将“+”作为空格处理，在这里应该对“+”做_urlencode_处理，即构造_O:%2b4:”baby”:1:{s:4:”file”;s:8:”flag.php”;}"></a><strong>联系到上边的条件，此处应构造<em>O:+4:”baby”:1:{s:4:”file”;s:8:”flag.php”;}_，但是在请求发送到服务器时会将“</em>+<em>”作为空格处理，在这里应该对“</em>+<em>”做_urlencode_处理，即构造_O:%2b4:”baby”:1:{s:4:”file”;s:8:”flag.php”;}</em></strong></h2><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><strong><img src="https://www.highker.wiki/wp-content/uploads/2018/12/TIM%E6%88%AA%E5%9B%BE20181223233544.png" alt=""></strong></h2>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/web/">web</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

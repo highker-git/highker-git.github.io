@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>dvwa环境搭建 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="安装apache
+
+首先呢，我使用的是CentOS系统。现在在终端中输入如下指令： yum install -y httpd
+
+安装MySQL与安装php
+
+同理，输入以下代码，即可完成MySQL与php安装。 yum install -y mysql-devel mysql mysql-serve">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="dvwa环境搭建"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>dvwa环境搭建</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/15/dvwa-building/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-15T11:59:03.000Z">
+          2018-04-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <ul>
+<li><em><strong>安装apache</strong></em></li>
+</ul>
+<p>首先呢，我使用的是CentOS系统。现在在终端中输入如下指令： <strong>yum install -y httpd</strong></p>
+<ul>
+<li><em><strong>安装MySQL与安装php</strong></em></li>
+</ul>
+<p>同理，输入以下代码，即可完成MySQL与php安装。 <strong>yum install -y mysql-devel mysql mysql-server</strong> <strong>yum install -y php php-pdo php-mysql</strong></p>
+<ul>
+<li><em><strong>配置apache支持解析php</strong></em></li>
+</ul>
+<p>打开主菜单里的<strong>etc/httpd/conf</strong>目录，找到<strong>httpd.conf</strong>，打开并编辑该文件，找到该文件中的<strong>LoadModule</strong>，在下面追加如下代码： <strong>LoadModule php5_module modules/libphp5.so</strong> <strong>LoadModule php5_module modules/libphp5-zts.so</strong> <strong>AddHandler php5-script .php</strong> <strong>AddType text/html .php</strong> <strong>DirectoryIndex index.php</strong></p>
+<ul>
+<li><em><strong>配置php引入MySQL操作包</strong></em></li>
+</ul>
+<p>由于我们在第二步中用<strong>yum</strong>直接安装了<strong>mysql.so</strong>，<strong>yum</strong>会直接自动配置，所以我们直接略过。</p>
+<ul>
+<li><em><strong>配置MySQL账户密码</strong></em></li>
+</ul>
+<p><strong>service mysqld start</strong> <strong>Mysqladmin -u root password ‘</strong>你的密码<strong>’</strong></p>
+<ul>
+<li><em><strong>启用apache服务</strong></em></li>
+</ul>
+<p><strong>service httpd start</strong></p>
+<ul>
+<li><em><strong>下载并安装dvwa</strong></em></li>
+</ul>
+<p><strong>wget <a href="https://github.com/ethicalhack3r/DVWA/archive/master.zip" target="_blank" rel="noopener">https://github.com/ethicalhack3r/DVWA/archive/master.zip</a></strong> <strong>unzip master.zip -d /var/www/html</strong></p>
+<ul>
+<li><strong><em>更改配置文件</em></strong></li>
+</ul>
+<p>首先进入<strong>/var/www/html/DVWA-master/config</strong>，编辑<strong>config.inc.php.dist</strong>文件，将其文件名更改为<strong>config.inc.php。</strong></p>
+<ul>
+<li><em><strong>尝试去访问你的dvwa界面</strong></em></li>
+</ul>
+<p>再次访问，则可看到会有一些错误，因为我们要利用dvwa的漏洞来进行渗透练习，所以我们要去更改配置。</p>
+<ul>
+<li><em><strong>PHP function allow_url_include: Disabled</strong></em></li>
+</ul>
+<p>打开<strong>/etc</strong>目录下的<strong>php.ini</strong>文件，将<strong>allow_url_include</strong>的值由<strong>Off</strong>改为<strong>On</strong></p>
+<ul>
+<li><em><strong>PHP module gd: Missing</strong></em></li>
+</ul>
+<p>运行如下指令： <strong>yum install -y php-gd</strong></p>
+<ul>
+<li><em><strong>reCAPTCHA key: Missing</strong></em></li>
+</ul>
+<p>进入<strong>/var/www/html/DVWA-master/config</strong>目录，编辑<strong>config.Inc.php</strong>文件： 配置<strong>$_DVWA[ ‘recaptcha_public_key’ ]  = ‘6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg’;</strong> 配置<strong>$_DVWA[ ‘recaptcha_private_key’ ] = ‘6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ’;</strong></p>
+<ul>
+<li><em><strong>Unable to connect to the database</strong></em></li>
+</ul>
+<p>进入<strong>/var/www/html/DVWA-master/config</strong>目录，编辑<strong>config.inc.php</strong>文件，将其中的<strong>$_DVWA[ ‘db_password’ ]</strong>值改为刚刚设置好的数据库root账号的密码</p>
+<ul>
+<li><strong><em>Writable folder /var/www/html/DVWA-master/hackable/uploads/: No</em></strong></li>
+</ul>
+<ul>
+<li><strong><em>Writable file /var/www/html/DVWA-master/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt: NO</em></strong></li>
+</ul>
+<p>运行如下代码： <strong>chown apache:apache /var/www/html -R</strong></p>
+<ul>
+<li><strong><em>尝试访问dvwa</em></strong></li>
+</ul>
+<p>之后点击最下方的按钮即可创建数据库，默认的登陆账户是<strong>admin</strong>，密码是<strong>password</strong>。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/笔记/">笔记</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

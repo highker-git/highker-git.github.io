@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>内网渗透_1 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="0x01reverse shell由于一般bash_反弹shell的本质是对终端std流的重定向，本地nc接受的反弹shell并非一个具有完整功能的tty终端，例如su、ssh、进入docker容器等常用的功能均无法正常使用，可以说只是一个强化版的webshell，所以最好是将reverse she">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="内网渗透_1"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>内网渗透_1</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/07/22/e5-86-85-e7-bd-91-e6-b8-97-e9-80-8f-1/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-07-22T03:26:49.000Z">
+          2019-07-22
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a><em><strong>0x01</strong></em></h1><h2 id="reverse-shell"><a href="#reverse-shell" class="headerlink" title="reverse shell"></a><em><strong>reverse shell</strong></em></h2><h3 id="由于一般bash-反弹shell的本质是对终端std流的重定向，本地nc接受的反弹shell并非一个具有完整功能的tty终端，例如su、ssh、进入docker容器等常用的功能均无法正常使用，可以说只是一个强化版的webshell，所以最好是将reverse-shell提升为一个真正的tty-shell-。"><a href="#由于一般bash-反弹shell的本质是对终端std流的重定向，本地nc接受的反弹shell并非一个具有完整功能的tty终端，例如su、ssh、进入docker容器等常用的功能均无法正常使用，可以说只是一个强化版的webshell，所以最好是将reverse-shell提升为一个真正的tty-shell-。" class="headerlink" title="由于一般bash_反弹shell的本质是对终端std流的重定向，本地nc接受的反弹shell并非一个具有完整功能的tty终端，例如su、ssh、进入docker容器等常用的功能均无法正常使用，可以说只是一个强化版的webshell，所以最好是将reverse shell提升为一个真正的tty shell_。"></a>由于一般<em><strong>bash</strong>_反弹</em><strong>shell</strong><em>的本质是对终端</em><strong>std</strong><em>流的重定向，本地</em><strong>nc</strong><em>接受的反弹</em><strong>shell</strong><em>并非一个具有完整功能的</em><strong>tty</strong><em>终端，例如</em><strong>su</strong><em>、</em><strong>ssh</strong><em>、进入</em><strong>docker</strong><em>容器等常用的功能均无法正常使用，可以说只是一个强化版的</em><strong>webshell</strong><em>，所以最好是将</em><strong>reverse shell</strong><em>提升为一个真正的</em><strong>tty shell</strong>_。</h3><h3 id="α-reverse-shell"><a href="#α-reverse-shell" class="headerlink" title="α_reverse_shell:"></a><em><strong>α_reverse_shell:</strong></em></h3><h3 id="python-c-‘import-pty-pty-spawn-“-bin-bash”-’-info"><a href="#python-c-‘import-pty-pty-spawn-“-bin-bash”-’-info" class="headerlink" title="python -c ‘import pty; pty.spawn(“/bin/bash”)’       #info"></a><em><strong>python -c ‘import pty; pty.spawn(“/bin/bash”)’       #<a href="https://cloud.tencent.com/developer/section/1372585" target="_blank" rel="noopener">info</a></strong></em></h3><h3 id="β-local-shell"><a href="#β-local-shell" class="headerlink" title="β_local_shell:"></a><em><strong>β_local_shell:</strong></em></h3><h3 id="Z-挂起"><a href="#Z-挂起" class="headerlink" title="*^Z *       #挂起"></a><em>*<em>^Z *</em></em>       #挂起</h3><h3 id="stty-raw-echo-不过一般stty-对stdin不是stdout-操作。"><a href="#stty-raw-echo-不过一般stty-对stdin不是stdout-操作。" class="headerlink" title="stty raw -echo       #不过一般stty_对stdin不是stdout_操作。"></a><em><strong>stty raw -echo</strong></em>       #不过一般<em><strong>stty</strong>_对</em><strong>stdin</strong><em>不是</em><strong>stdout</strong>_操作。</h3><h3 id="fg-唤起后台程序"><a href="#fg-唤起后台程序" class="headerlink" title="*fg *     #唤起后台程序"></a><em>*<em>fg *</em></em>     #唤起后台程序</h3><h3 id="γ-reverse-shell"><a href="#γ-reverse-shell" class="headerlink" title="γ_reverse_shell:"></a><em><strong>γ_reverse_shell:</strong></em></h3><h3 id="reset-export-SHELL-bash-懂得都懂-export-TERM-xterm256-color-stty-rows-38-columns-116"><a href="#reset-export-SHELL-bash-懂得都懂-export-TERM-xterm256-color-stty-rows-38-columns-116" class="headerlink" title="reset *export SHELL=bash                     * #懂得都懂 export TERM=xterm256-color stty rows 38 columns 116"></a><em><strong>reset</strong></em> <em>*<em>export SHELL=bash                     *</em></em> <strong>#懂得都懂</strong> <em><strong>export TERM=xterm256-color</strong></em> <em><strong>stty rows 38 columns 116</strong></em></h3><p><img src="https://www.highker.wiki/wp-content/uploads/2019/07/TIM%E6%88%AA%E5%9B%BE20190722111241.png" alt=""></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/笔记/">笔记</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>记第一次代码审计 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="今天第一次进行了php代码审计，这也是渗透测试中白盒测试的重要内容。 首先看参数uid、username、data，其中，只有前两项使用了intval函数，对传入的值进行了整型的格式化，但第三项并没有，直接以字符串的形式将data参数的值传入，而mysql_query函数并没有指定一个连接，所以该函">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="记第一次代码审计"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>记第一次代码审计</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/14/the-first-code-audit/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-14T15:05:18.000Z">
+          2018-04-14
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>今天第一次进行了php代码审计，这也是渗透测试中白盒测试的重要内容。 首先看参数uid、username、data，其中，只有前两项使用了intval函数，对传入的值进行了整型的格式化，但第三项并没有，直接以字符串的形式将data参数的值传入，而mysql_query函数并没有指定一个连接，所以该函数会自动在数据库中创建一个连接，并且缓存在服务器上，导致攻击者可以在查询语句后加入恶意代码，并在之后的mysql_fetch_array()语句中创建一个能查询到的数组将传入的值直接写入储存。 若要对该漏洞进行修补，只需要将参数data传入的值像前两个参数一样进行整型的格式化，便可以达到目的。 综上所述，该漏洞报告可以简单的概括为如下三点：</p>
+<ul>
+<li><p><em><strong>漏洞参数：data</strong></em></p>
+</li>
+<li><p><em><strong>产生原因：传入值未格式化</strong></em></p>
+</li>
+<li><p><em><strong>修补方法：将传入值格式化为整型</strong></em></p>
+<p><img src="https://www.highker.wiki/wp-content/uploads/2018/04/TIM%E5%9B%BE%E7%89%8720180414103428.jpg" alt=""></p>
+</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/笔记/">笔记</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

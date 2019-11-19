@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>通过一道CTF题浅析哈希长度扩展攻击 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="所谓的Hash，翻译过来呢，也就是“散列”，这里就简单的将其替换为音译“哈希”。 对于不同的哈希算法，其总会有一个共同的特点“对于输入的数据，不管其长度，经过哈希算法运算后总会是一个固定的长度”。也就是说，对于散列空间，通常输入数据的空间是远大于散列空间的。而对于散列值，相同的输入是有可能会散列成相">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="通过一道CTF题浅析哈希长度扩展攻击"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>通过一道CTF题浅析哈希长度扩展攻击</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/09/22/hash-length-extends-attack/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-09-21T19:08:04.000Z">
+          2018-09-22
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>所谓的Hash，翻译过来呢，也就是“散列”，这里就简单的将其替换为音译“哈希”。 对于不同的哈希算法，其总会有一个共同的特点“对于输入的数据，不管其长度，经过哈希算法运算后总会是一个固定的长度”。也就是说，对于散列空间，通常输入数据的空间是远大于散列空间的。而对于散列值，相同的输入是有可能会散列成相同的输出，所以不可能从散列值来确定唯一的输入值。</p>
+<ul>
+<li><strong>简单来讲，所谓的将数据经由哈希算法加密，实际上就是“信息摘要”。</strong></li>
+</ul>
+<p>而我们在这里就以某道CTF题目中遇到的问题来做研究，接下来我们将亲自“破解MD5”！ 那么有些对MD5有些认知的同学可能会说：“破解MD5？吹什么牛X呢，把自己当王小云博士了啊”，但是我想说的是，不妨看完再说。 当然了，具体的实现我也就不会去深究了，免得在大佬面前班门弄斧。 哈希长度扩展攻击，本质是针对由于很多哈希算法比如非常流行的MD5、SHA-1等都使用了<a href="https://en.wikipedia.org/wiki/Merkle%E2%80%93Damg%C3%A5rd_construction" target="_blank" rel="noopener">Merkle–Damgård construction</a>进行数据压缩。 <img src="http://39.106.123.106/wp-content/uploads/2018/09/5bf4e06fd68004460c17ab77d0450e7a.png" alt=""> 在MD5中，首先算法将消息以512-bit（64bytes）的长度分为了n组。而最后一组必然不足512-bit，这时候算法就会自动往最后一组中填充字节，这个过程被称为Padding。Padding的规则是，在最末一个字节之后补充0x80，其余的部分填充为0x00，而Padding最后的8字节用来表示需要哈希的消息长度。 在这里直接看那道题的源码 <img src="http://39.106.123.106/wp-content/uploads/2018/09/7b0f6935353aaaa32af469ae5f9e2f95.png" alt=""></p>
+<ul>
+<li><strong>从源码中可以提取到重要的信息</strong></li>
+</ul>
+<p>首先，明文长度为$secret.urldecode(“admin”.”admin”)（在PHP中“.”是连接符），前面给出$secret的长度为15位，也就是该脚本会下发给浏览器一个cookie，字段名为“sample-hash”，值为该明文的md5加密值（所给值为571580b26c65f306376d4f64e53cb5c7）。 那么我们可知，flag获取的要求是：传进一个cookie使其等于$secret.urldecode($username . $password)MD5加密后的结果且$password不能为admin。</p>
+<ul>
+<li><strong>综上，我们可以尝试构造payload_1</strong></li>
+</ul>
+<p>首先是$secret的15个未知位，在这里我直接用问号代替表示，之后按照源码的提示，跟上字符串“adminadmin”<img src="http://39.106.123.106/wp-content/uploads/2018/09/9c5c85a94cc6631afb47141a9ff313cf.png" alt=""> 接下来便是对其进行字节填充，在末尾加入0x80，之后为0x00，在最后的8个字节，要表明哈希的长度，总长度为15+10=25，转为16进制，即为0xC8 <img src="http://39.106.123.106/wp-content/uploads/2018/09/d516a03803ccc67fa0c7ae33539d772b.png" alt=""> 这时我们已经填充到了64bytes，完成了Padding，接下来MD5算法开始依次对每组消息进行压缩，经过64轮数学变换。这个过程中，一开始会有定义好的初始化向量，为4个中间值，初始化向量不是随机生成的，是标准里定义死的。</p>
+<ul>
+<li><strong>实施**</strong>Length Extension Attack**</li>
+</ul>
+<p>在这里要将原哈希值(571580b26c65f306376d4f64e53cb5c7)拆分为四组，即为：571580b2;6c65f306;376d4f64;e53cb5c7 在此将四组数值按照小端规则反序，可得如下四组</p>
+<ul>
+<li><strong>A</strong>=0xb2801557;</li>
+<li><strong>B</strong>=0x06f3656c;</li>
+<li><strong>C</strong>=0x644f6d37;</li>
+<li><strong>D</strong>=0xc7b53ce5;</li>
+</ul>
+<p>若向补位后的消息再追加一条消息字符串“Hacker”，则会对这个字符串进行补位，再利用上一个运算算出的值作为初始向量进行函数运算，最终得到的MD5值为6df6547d222c30afcb9fd3809dc04c13。</p>
+<ul>
+<li><strong>构造payload_2</strong></li>
+</ul>
+<p>按照源码提示，直接构造$username=”admin”,$password=”admin%80%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00% 00%00%00%00%00%00%00%00%00%00%00%00%00%c8%00%00%00%00%00%00%00Hacker”即可 <strong>参靠文章：</strong> 1、<a href="https://blog.csdn.net/jblock/article/details/78446080" target="_blank" rel="noopener">浅析哈希长度拓展攻击</a> 2、<a href="http://blog.chinaunix.net/uid-27070210-id-3255947.html" target="_blank" rel="noopener">Understanding MD5 Length Extension Attack</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/杂谈/">杂谈</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

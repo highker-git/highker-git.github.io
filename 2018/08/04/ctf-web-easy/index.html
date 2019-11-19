@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ctf中web的入门套路 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="本文章仅供自己作为笔记以及为没接触过web_的童鞋查阅，请大佬们移步~_
+基础篇
+套路一：查看源代码
+
+示例链接 直接右击查看源代码
+
+套路二：修改_request_头
+
+示例链接一 将_Accept-Language_修改为非中文 示例链接二 在_User-Agent_里写一个_HAHA_浏览器 ">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="ctf中web的入门套路"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>ctf中web的入门套路</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/08/04/ctf-web-easy/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-08-04T15:24:58.000Z">
+          2018-08-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="本文章仅供自己作为笔记以及为没接触过web-的童鞋查阅，请大佬们移步"><a href="#本文章仅供自己作为笔记以及为没接触过web-的童鞋查阅，请大佬们移步" class="headerlink" title="本文章仅供自己作为笔记以及为没接触过web_的童鞋查阅，请大佬们移步~_"></a><strong>本文章仅供自己作为笔记以及为没接触过<em>web_的童鞋查阅，请大佬们移步</em>~_</strong></h1><p><img src="https://www.highker.wiki/wp-content/uploads/2018/07/6S8U@HKPP_1UHZZIIPE3.png" alt=""></p>
+<h1 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a><strong>基础篇</strong></h1><ul>
+<li><strong>套路一：查看源代码</strong></li>
+</ul>
+<p><a href="http://lab1.xseclab.com/base1_4a4d993ed7bd7d467b27af52d2aaa800/index.php" target="_blank" rel="noopener"><strong>示例链接</strong></a> <strong>直接右击查看源代码</strong></p>
+<ul>
+<li><strong>套路二：修改_request_头</strong></li>
+</ul>
+<p><a href="http://lab1.xseclab.com/base1_0ef337f3afbe42d5619d7a36c19c20ab/index.php" target="_blank" rel="noopener"><strong>示例链接一</strong></a> <strong>将_Accept-Language_修改为非中文</strong> <strong><a href="http://lab1.xseclab.com/base6_6082c908819e105c378eb93b6631c4d3/index.php" target="_blank" rel="noopener">示例链接二</a></strong> <strong>在_User-Agent_里写一个_HAHA_浏览器</strong> <strong><a href="http://ctf5.shiyanbar.com/sHeader/" target="_blank" rel="noopener">示例链接三</a></strong> <strong>根据题目提示修改<em>User-Agent_，添加使用_ie_浏览器以及</em>.net framework9.9_框架以及在_Accept-Language_里修改为英语</strong></p>
+<ul>
+<li><strong>套路三：查<em>response</em></strong></li>
+</ul>
+<p><a href="http://lab1.xseclab.com/base7_eb68bd2f0d762faf70c89799b3c1cc52/index.php" target="_blank" rel="noopener"><strong>示例链接一</strong></a> <strong>_burpsuite_抓包，用_repeater_发包，查看_response_，发现_key_字段</strong> <a href="http://ctf5.shiyanbar.com/basic/catch/" target="_blank" rel="noopener"><strong>示例链接二</strong></a> <strong><em>burpsuite_抓包，_repeater_发包，在_response_里可以看到_Content-Row_字段，将该字段的值提交，得到_flag</em></strong></p>
+<ul>
+<li><strong>套路四：_js_代码混淆</strong></li>
+</ul>
+<p><strong><a href="http://ctf5.shiyanbar.com/DUTCTF/1.html" target="_blank" rel="noopener">示例链接</a></strong> <strong>看似无意义的字符串仍具有_js_代码的本质，直接_F12_在_console_中粘贴回车执行</strong></p>
+<ul>
+<li><strong>套路五：简单的_ip_伪造</strong></li>
+</ul>
+<p><a href="http://ctf5.shiyanbar.com/phpaudit/" target="_blank" rel="noopener"><strong>示例链接</strong></a> <strong>在<em>request_包的_header_里添加_x-forwarded-for_或_client-ip_等字段，值为欲伪造的_ip</em></strong></p>
+<ul>
+<li><strong>套路六：简单的审查元素</strong></li>
+</ul>
+<p><strong><a href="http://lab1.xseclab.com/base10_0b4e4866096913ac9c3a2272dde27215/index.php" target="_blank" rel="noopener">示例链接</a></strong> <strong>_F12_修改_maxlength_，直接提交</strong></p>
+<ul>
+<li><strong>套路七：简单的信息泄露</strong></li>
+</ul>
+<p><strong><a href="http://lab1.xseclab.com/base12_44f0d8a96eed21afdc4823a0bf1a316b/index.php" target="_blank" rel="noopener">示例链接</a></strong> <strong>直接找_robots.txt_，其作用是拒绝搜索引擎的抓取，然而也会泄露本身的信息</strong></p>
+<ul>
+<li><strong>套路八：_cookie_修改</strong></li>
+</ul>
+<p><strong><a href="http://lab1.xseclab.com/base9_ab629d778e3a29540dfd60f2e548a5eb/index.php" target="_blank" rel="noopener">示例链接一</a></strong> <strong><em>chrome_有款好用的插件叫_EditThisCookie_，可在该插件中发现_login_字段，直接将值修改为_1</em></strong> <a href="http://ctf5.shiyanbar.com/web/Session.php" target="_blank" rel="noopener"><strong>示例链接二</strong></a> <strong>根据题目提示“_Guess Next Session_”，清掉所有_cookie_，刷新发起下一次会话</strong></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/笔记/">笔记</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2019 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
