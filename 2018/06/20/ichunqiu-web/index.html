@@ -12,15 +12,15 @@
   
   <meta name="description" content="有段时间没有写文章了，先放出一篇wp来水一水
 
-_1、_目标
+1、目标
 
  
 
-2、题目中提示是_request_，那么直接开始抓包
+2、题目中提示是request，那么直接开始抓包
 
 
 
-_3、_可以看到_response_包头中有_X-Method_字段，将其加到_request_头中，但仍没有想要的内容，于是尝试使用_POST_、_DELETE_、_O">
+3、可以看到response包头中有X-Method字段，将其加到request头中，但仍没有想要的内容，于是尝试使用POST、DELETE、OPTIONS等方法，发现OPTIO">
   
 
   
@@ -91,35 +91,35 @@ _3、_可以看到_response_包头中有_X-Method_字段，将其加到_request_
       
         <p>有段时间没有写文章了，先放出一篇wp来水一水</p>
 <ul>
-<li><h2 id="1、-目标"><a href="#1、-目标" class="headerlink" title="_1、_目标"></a><strong>_1、_目标</strong></h2></li>
+<li><h2 id="1、目标"><a href="#1、目标" class="headerlink" title="1、目标"></a><strong>1、目标</strong></h2></li>
 </ul>
 <p><img src="https://www.highker.wiki/wp-content/uploads/2018/06/a.png" alt=""> </p>
 <ul>
-<li><h2 id="2、题目中提示是-request-，那么直接开始抓包"><a href="#2、题目中提示是-request-，那么直接开始抓包" class="headerlink" title="2、题目中提示是_request_，那么直接开始抓包"></a><em><strong>2、</strong></em><strong>题目中提示是_request_，那么直接开始抓包</strong></h2></li>
+<li><h2 id="2、题目中提示是request，那么直接开始抓包"><a href="#2、题目中提示是request，那么直接开始抓包" class="headerlink" title="2、题目中提示是request，那么直接开始抓包"></a><strong>2、题目中提示是request，那么直接开始抓包</strong></h2></li>
 </ul>
 <p><img src="https://www.highker.wiki/wp-content/uploads/2018/06/111.png" alt=""></p>
 <ul>
-<li><h2 id="3、-可以看到-response-包头中有-X-Method-字段，将其加到-request-头中，但仍没有想要的内容，于是尝试使用-POST-、-DELETE-、-OPTIONS-等方法，发现-OPTIONS-方法可用"><a href="#3、-可以看到-response-包头中有-X-Method-字段，将其加到-request-头中，但仍没有想要的内容，于是尝试使用-POST-、-DELETE-、-OPTIONS-等方法，发现-OPTIONS-方法可用" class="headerlink" title="_3、_可以看到_response_包头中有_X-Method_字段，将其加到_request_头中，但仍没有想要的内容，于是尝试使用_POST_、_DELETE_、_OPTIONS_等方法，发现_OPTIONS_方法可用"></a><strong>_3、_可以看到_response_包头中有_X-Method_字段，将其加到_request_头中，但仍没有想要的内容，于是尝试使用_POST_、_DELETE_、_OPTIONS_等方法，发现_OPTIONS_方法可用</strong></h2></li>
+<li><h2 id="3、可以看到response包头中有X-Method字段，将其加到request头中，但仍没有想要的内容，于是尝试使用POST、DELETE、OPTIONS等方法，发现OPTIONS方法可用"><a href="#3、可以看到response包头中有X-Method字段，将其加到request头中，但仍没有想要的内容，于是尝试使用POST、DELETE、OPTIONS等方法，发现OPTIONS方法可用" class="headerlink" title="3、可以看到response包头中有X-Method字段，将其加到request头中，但仍没有想要的内容，于是尝试使用POST、DELETE、OPTIONS等方法，发现OPTIONS方法可用"></a><strong>3、可以看到response包头中有X-Method字段，将其加到request头中，但仍没有想要的内容，于是尝试使用POST、DELETE、OPTIONS等方法，发现OPTIONS方法可用</strong></h2></li>
 </ul>
 <p><img src="https://www.highker.wiki/wp-content/uploads/2018/06/222222222222222.png" alt=""></p>
 <ul>
-<li><h2 id="4、-再次访问，可以看到-response-包头中多了一个参数f，指向了-1-php-，访问该-url"><a href="#4、-再次访问，可以看到-response-包头中多了一个参数f，指向了-1-php-，访问该-url" class="headerlink" title="4、_再次访问，可以看到_response_包头中多了一个参数f，指向了_1.php_，访问该_url"></a><strong><em>4、_再次访问，可以看到_response_包头中多了一个参数f，指向了_1.php_，访问该_url</em></strong></h2></li>
+<li><h2 id="4、再次访问，可以看到response包头中多了一个参数f，指向了1-php，访问该url"><a href="#4、再次访问，可以看到response包头中多了一个参数f，指向了1-php，访问该url" class="headerlink" title="4、再次访问，可以看到response包头中多了一个参数f，指向了1.php，访问该url"></a><strong>4、再次访问，可以看到response包头中多了一个参数f，指向了1.php，访问该url</strong></h2></li>
 </ul>
 <p><img src="https://www.highker.wiki/wp-content/uploads/2018/06/33333333333333.png" alt=""></p>
 <ul>
-<li><h2 id="5、发现返回状态码为302-，再联想到一开始尝试访问-haha-php-得到的回显显示-server-为-Apache-，这时可以想到-Apache-的-htaccess-文件"><a href="#5、发现返回状态码为302-，再联想到一开始尝试访问-haha-php-得到的回显显示-server-为-Apache-，这时可以想到-Apache-的-htaccess-文件" class="headerlink" title="5、发现返回状态码为302_，再联想到一开始尝试访问_haha.php_得到的回显显示_server_为_Apache_，这时可以想到_Apache_的.htaccess_文件"></a><em><strong>5、</strong></em><strong>发现返回状态码为<em>302_，再联想到一开始尝试访问_haha.php_得到的回显显示_server_为_Apache_，这时可以想到_Apache_的</em>.htaccess_文件</strong></h2></li>
+<li><h2 id="5、发现返回状态码为302，再联想到一开始尝试访问haha-php得到的回显显示server为Apache，这时可以想到Apache的-htaccess文件"><a href="#5、发现返回状态码为302，再联想到一开始尝试访问haha-php得到的回显显示server为Apache，这时可以想到Apache的-htaccess文件" class="headerlink" title="5、发现返回状态码为302，再联想到一开始尝试访问haha.php得到的回显显示server为Apache，这时可以想到Apache的.htaccess文件"></a><strong>5、发现返回状态码为302，再联想到一开始尝试访问haha.php得到的回显显示server为Apache，这时可以想到Apache的.htaccess文件</strong></h2></li>
 </ul>
 <p><img src="https://www.highker.wiki/wp-content/uploads/2018/06/44444444444444.png" alt=""></p>
 <ul>
-<li><h2 id="６、访问-htaccess-文件后发现回显中有一个-url-，访问该-url"><a href="#６、访问-htaccess-文件后发现回显中有一个-url-，访问该-url" class="headerlink" title="６、访问.htaccess_文件后发现回显中有一个_url_，访问该_url"></a><em><strong>６、</strong></em><strong>访问<em>.htaccess_文件后发现回显中有一个_url_，访问该_url</em></strong></h2></li>
+<li><h2 id="６、访问-htaccess文件后发现回显中有一个url，访问该url"><a href="#６、访问-htaccess文件后发现回显中有一个url，访问该url" class="headerlink" title="６、访问.htaccess文件后发现回显中有一个url，访问该url"></a><strong>６、访问.htaccess文件后发现回显中有一个url，访问该url</strong></h2></li>
 </ul>
 <p><img src="https://www.highker.wiki/wp-content/uploads/2018/06/5555555555.png" alt=""></p>
 <ul>
-<li><h2 id="7、发现无法看到flag-，而回显中提示-XFF-，即使用-X-Forwarded-For-伪造访问者-ip-，既然出题者如此提示，那便使用-client-ip-等方法（-皮这一下很开心-）来实现伪造-ip-为-127-0-0-1"><a href="#7、发现无法看到flag-，而回显中提示-XFF-，即使用-X-Forwarded-For-伪造访问者-ip-，既然出题者如此提示，那便使用-client-ip-等方法（-皮这一下很开心-）来实现伪造-ip-为-127-0-0-1" class="headerlink" title="7、发现无法看到flag_，而回显中提示_XFF_，即使用_X-Forwarded-For_伪造访问者_ip_，既然出题者如此提示，那便使用_client-ip_等方法（_皮这一下很开心_）来实现伪造_ip_为_127.0.0.1"></a><em><strong>7、</strong></em><strong>发现无法看到<em>flag_，而回显中提示_XFF_，即使用_X-Forwarded-For_伪造访问者_ip_，既然出题者如此提示，那便使用_client-ip_等方法（_皮这一下很开心_）来实现伪造_ip_为_127.0.0.1</em></strong></h2></li>
+<li><h2 id="7、发现无法看到flag，而回显中提示XFF，即使用X-Forwarded-For伪造访问者ip，既然出题者如此提示，那便使用client-ip等方法（皮这一下很开心）来实现伪造ip为127-0-0-1"><a href="#7、发现无法看到flag，而回显中提示XFF，即使用X-Forwarded-For伪造访问者ip，既然出题者如此提示，那便使用client-ip等方法（皮这一下很开心）来实现伪造ip为127-0-0-1" class="headerlink" title="7、发现无法看到flag，而回显中提示XFF，即使用X-Forwarded-For伪造访问者ip，既然出题者如此提示，那便使用client-ip等方法（皮这一下很开心）来实现伪造ip为127.0.0.1"></a><strong>7、发现无法看到flag，而回显中提示XFF，即使用X-Forwarded-For伪造访问者ip，既然出题者如此提示，那便使用client-ip等方法（皮这一下很开心）来实现伪造ip为127.0.0.1</strong></h2></li>
 </ul>
 <p><img src="https://www.highker.wiki/wp-content/uploads/2018/06/666666666666.png" alt=""></p>
 <ul>
-<li><h2 id="８、get-flag"><a href="#８、get-flag" class="headerlink" title="８、get flag"></a><em><strong>８、get flag</strong></em></h2></li>
+<li><h2 id="８、get-flag"><a href="#８、get-flag" class="headerlink" title="８、get flag"></a><strong>８、get flag</strong></h2></li>
 </ul>
 <p><img src="https://www.highker.wiki/wp-content/uploads/2018/06/7777777777777.png" alt=""></p>
 

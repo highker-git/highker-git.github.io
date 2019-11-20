@@ -11,9 +11,9 @@
 
   
   <meta name="description" content="0x01查下壳，发现是aspack
-_od_载入，_esp_脱壳0x02载入_IDA_静态分析一波
+od载入，esp脱壳0x02载入IDA静态分析一波
 主要逻辑还是很简单的，首先是对输入的一个check
-其实这段_check_倒是无所谓，_od_调试_nop_掉就得了，不过有可能可以从这里知道出题人希望我们输入的数据类型，明显是_16_进制字符串而另">
+其实这段check倒是无所谓，od调试nop掉就得了，不过有可能可以从这里知道出题人希望我们输入的数据类型，明显是16进制字符串而另一段。。。emmm嫌长不看了">
   
 
   
@@ -82,13 +82,13 @@ _od_载入，_esp_脱壳0x02载入_IDA_静态分析一波
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a><em><strong>0x01</strong></em></h1><h3 id="查下壳，发现是aspack"><a href="#查下壳，发现是aspack" class="headerlink" title="查下壳，发现是aspack"></a><strong>查下壳，发现是<em>aspack</em></strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/9OG_Z@RLEU8REL23.png" alt=""></strong></p>
-<h3 id="od-载入，-esp-脱壳"><a href="#od-载入，-esp-脱壳" class="headerlink" title="_od_载入，_esp_脱壳"></a><strong>_od_载入，_esp_脱壳</strong></h3><h1 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a><em><strong>0x02</strong></em></h1><h3 id="载入-IDA-静态分析一波"><a href="#载入-IDA-静态分析一波" class="headerlink" title="载入_IDA_静态分析一波"></a><strong>载入_IDA_静态分析一波</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/YL@DRQ81B3VSYLDRW767.png" alt=""></strong></p>
-<h3 id="主要逻辑还是很简单的，首先是对输入的一个check"><a href="#主要逻辑还是很简单的，首先是对输入的一个check" class="headerlink" title="主要逻辑还是很简单的，首先是对输入的一个check"></a><strong>主要逻辑还是很简单的，首先是对输入的一个<em>check</em></strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/IGN78GXDG0E3RU8G_A1G.png" alt=""></strong></p>
-<h3 id="其实这段-check-倒是无所谓，-od-调试-nop-掉就得了，不过有可能可以从这里知道出题人希望我们输入的数据类型，明显是-16-进制字符串"><a href="#其实这段-check-倒是无所谓，-od-调试-nop-掉就得了，不过有可能可以从这里知道出题人希望我们输入的数据类型，明显是-16-进制字符串" class="headerlink" title="其实这段_check_倒是无所谓，_od_调试_nop_掉就得了，不过有可能可以从这里知道出题人希望我们输入的数据类型，明显是_16_进制字符串"></a><strong>其实这段_check_倒是无所谓，_od_调试_nop_掉就得了，不过有可能可以从这里知道出题人希望我们输入的数据类型，明显是_16_进制字符串</strong></h3><h3 id="而另一段。。。-emmm-嫌长不看了，不过可以从最后输出的结果来做到管中窥豹"><a href="#而另一段。。。-emmm-嫌长不看了，不过可以从最后输出的结果来做到管中窥豹" class="headerlink" title="而另一段。。。_emmm_嫌长不看了，不过可以从最后输出的结果来做到管中窥豹"></a><strong>而另一段。。。_emmm_嫌长不看了，不过可以从最后输出的结果来做到管中窥豹</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/85Z_ZYWF1U7FZIMA8U6YM.png" alt=""></strong></p>
+        <h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a><em><strong>0x01</strong></em></h1><h3 id="查下壳，发现是aspack"><a href="#查下壳，发现是aspack" class="headerlink" title="查下壳，发现是aspack"></a><strong>查下壳，发现是aspack</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/9OG_Z@RLEU8REL23.png" alt=""></strong></p>
+<h3 id="od载入，esp脱壳"><a href="#od载入，esp脱壳" class="headerlink" title="od载入，esp脱壳"></a><strong>od载入，esp脱壳</strong></h3><h1 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a><em><strong>0x02</strong></em></h1><h3 id="载入IDA静态分析一波"><a href="#载入IDA静态分析一波" class="headerlink" title="载入IDA静态分析一波"></a><strong>载入IDA静态分析一波</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/YL@DRQ81B3VSYLDRW767.png" alt=""></strong></p>
+<h3 id="主要逻辑还是很简单的，首先是对输入的一个check"><a href="#主要逻辑还是很简单的，首先是对输入的一个check" class="headerlink" title="主要逻辑还是很简单的，首先是对输入的一个check"></a><strong>主要逻辑还是很简单的，首先是对输入的一个check</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/IGN78GXDG0E3RU8G_A1G.png" alt=""></strong></p>
+<h3 id="其实这段check倒是无所谓，od调试nop掉就得了，不过有可能可以从这里知道出题人希望我们输入的数据类型，明显是16进制字符串"><a href="#其实这段check倒是无所谓，od调试nop掉就得了，不过有可能可以从这里知道出题人希望我们输入的数据类型，明显是16进制字符串" class="headerlink" title="其实这段check倒是无所谓，od调试nop掉就得了，不过有可能可以从这里知道出题人希望我们输入的数据类型，明显是16进制字符串"></a><strong>其实这段check倒是无所谓，od调试nop掉就得了，不过有可能可以从这里知道出题人希望我们输入的数据类型，明显是16进制字符串</strong></h3><h3 id="而另一段。。。emmm嫌长不看了，不过可以从最后输出的结果来做到管中窥豹"><a href="#而另一段。。。emmm嫌长不看了，不过可以从最后输出的结果来做到管中窥豹" class="headerlink" title="而另一段。。。emmm嫌长不看了，不过可以从最后输出的结果来做到管中窥豹"></a><strong>而另一段。。。emmm嫌长不看了，不过可以从最后输出的结果来做到管中窥豹</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/85Z_ZYWF1U7FZIMA8U6YM.png" alt=""></strong></p>
 <h3 id="解码结果"><a href="#解码结果" class="headerlink" title="解码结果"></a><strong>解码结果</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/5759895FNZPS6RMRDDFM.png" alt=""></strong></p>
-<h1 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a><em><strong>0x03</strong></em></h1><h3 id="再联系到上边的判断输入字符串是否与-”reverse-”-相等，不难想到-payload-如何构造"><a href="#再联系到上边的判断输入字符串是否与-”reverse-”-相等，不难想到-payload-如何构造" class="headerlink" title="再联系到上边的判断输入字符串是否与_”reverse+”_相等，不难想到_payload_如何构造"></a><strong>再联系到上边的判断输入字符串是否与_”reverse+”_相等，不难想到_payload_如何构造</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/asdasdads.jpg" alt=""></strong></p>
-<h3 id="即-”ADEBDEAEC7BE”-，验证通过"><a href="#即-”ADEBDEAEC7BE”-，验证通过" class="headerlink" title="即_”ADEBDEAEC7BE”_，验证通过"></a><strong>即_”ADEBDEAEC7BE”_，验证通过</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/DS1OGALMHHLEUC8QE.png" alt=""></strong></p>
+<h1 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a><em><strong>0x03</strong></em></h1><h3 id="再联系到上边的判断输入字符串是否与”reverse-”相等，不难想到payload如何构造"><a href="#再联系到上边的判断输入字符串是否与”reverse-”相等，不难想到payload如何构造" class="headerlink" title="再联系到上边的判断输入字符串是否与”reverse+”相等，不难想到payload如何构造"></a><strong>再联系到上边的判断输入字符串是否与”reverse+”相等，不难想到payload如何构造</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/asdasdads.jpg" alt=""></strong></p>
+<h3 id="即”ADEBDEAEC7BE”，验证通过"><a href="#即”ADEBDEAEC7BE”，验证通过" class="headerlink" title="即”ADEBDEAEC7BE”，验证通过"></a><strong>即”ADEBDEAEC7BE”，验证通过</strong></h3><p><strong><img src="https://www.highker.wiki/wp-content/uploads/2019/04/DS1OGALMHHLEUC8QE.png" alt=""></strong></p>
 
       
     </div>

